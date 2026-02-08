@@ -159,6 +159,8 @@
     text-align: center;
     padding: var(--space-8);
     background: linear-gradient(135deg, var(--color-secondary-dark), var(--color-primary-dark));
+     display: flex; flex-direction: column; justify-content: center;
+    height: auto; max-height: 200px;
 }
 
 .card-stat-number {
@@ -173,6 +175,7 @@
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wider);
+    word-wrap: break-word; overflow-wrap: break-word;
 }
 
 /* ===== TESTIMONIAL CARD ===== */
@@ -278,3 +281,9 @@
     }
 }
 /* this is cchecking */
+@media (max-width: 768px) { .card-img { max-height: 150px; } }
+@media (max-width: 768px) {
+  .card-stat-number {
+    font-size: var(--text-3xl);
+  }
+}

@@ -2329,7 +2329,7 @@ body {
 /* Staff Grid Responsive */
 @media (max-width: 768px) {
   .staff-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
   }
 
@@ -2804,7 +2804,7 @@ body {
 }
 
 .social-link-card:hover {
-  background: var(--accent-teal);
+  /* background: var(--accent-teal); */
   border-color: var(--accent-teal);
   transform: translateY(-5px);
 }
@@ -3136,8 +3136,11 @@ textarea.form-input {
 
 .event-badge {
   display: inline-block;
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem ;
   border-radius: 50px;
+  width: 60px;
+  margin-left: 30px;
+  text-align: center;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -3598,6 +3601,7 @@ textarea.form-input {
     width: 100%;
     min-width: 100%;
     height: 150px;
+    object-fit: cover;
   }
 
   .card-department .card-body {
@@ -4386,3 +4390,120 @@ textarea.form-input {
   --text-primary: #e2e8f0 !important;
   --bg-primary: transparent !important;
 }
+/* .............. accordion-button modification for dark theme................ */
+.accordion-button::after {
+  filter: invert(1);
+}
+.accordion-button::after {
+  background-image: var(--bs-accordion-btn-icon);
+  filter: brightness(0) saturate(100%) invert(74%) sepia(20%) saturate(500%) hue-rotate(180deg);
+}
+.my-share-container {
+  position: fixed !important;
+  top: 700px;
+  left: 20px;
+  z-index: 9999;
+}
+
+.share-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.share-btn.active {
+  transform: rotate(180deg);
+}
+
+.share-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: 65px;
+  left: 0; 
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.share-options.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.share-option {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.share-option.whatsapp { background: #25D366; }
+.share-option.facebook { background: #1877F2; }
+.share-option.youtube { background: #FF0000; }
+/* 📱 Mobile screens */
+@media (max-width: 600px) {
+  .my-share-container {
+    top: auto;
+    bottom: 20px;
+    left: 15px;
+  }
+
+  .share-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .share-option {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 📲 Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .my-share-container {
+    top: 500px; 
+    left: 25px;
+  }
+
+  .share-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .share-option {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+}
+
+/* 💻 Large desktops */
+@media (min-width: 1025px) {
+  .my-share-container {
+    top: 700px;  
+    left: 30px;
+  }
+}
+

@@ -226,6 +226,12 @@ header[data-navbar] {
     z-index: 1100;
     list-style: none;
 }
+.dropdown-menu{
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
 .nav-item.dropdown:hover .dropdown-menu,
 .nav-item.dropdown:focus-within .dropdown-menu {
@@ -236,7 +242,7 @@ header[data-navbar] {
 .nav-item.dropdown:hover .dropdown-arrow {
     transform: rotate(180deg);
 }
-
+ .nav-item.dropdown:hover .dropdown-menu, .nav-item.dropdown:focus-within .dropdown-menu { display: block; /* keep it visible */ opacity: 1; transform: translateY(0); visibility: visible; }
 @keyframes dropdownFade {
     from {
         opacity: 0;
