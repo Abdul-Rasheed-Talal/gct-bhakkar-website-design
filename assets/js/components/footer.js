@@ -67,7 +67,7 @@ class Footer {
     const currentYear = new Date().getFullYear();
 
     container.innerHTML = `
-      <footer class="footer">
+      <footer class="footer site-footer no-theme">
         <!-- Decorative Wave -->
         <div class="footer-wave">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -146,7 +146,7 @@ class Footer {
                   </div>
                   <div class="footer-contact-item">
                     <div class="footer-contact-icon">
-                      <i class="fas fa-phone-alt"></i>
+                      <i class="fas fa-phone"></i>
                     </div>
                     <div class="footer-contact-text">
                       <span class="footer-contact-label">Phone</span>
@@ -209,6 +209,23 @@ class Footer {
         </div>
       </footer>
     `;
+ // Export for manual initialization
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Footer;
+}
+const footer = document.querySelector('.site-footer');
+
+// Freeze variables/colors
+footer.style.setProperty('--text-muted', '#94a3b8');
+footer.style.setProperty('--text-primary', '#e2e8f0');
+footer.style.setProperty('--bg-primary', 'transparent');
+
+// Fix icons colors
+footer.querySelector('.footer-made-by').style.color = '#94a3b8';
+footer.querySelector('.fa-heart').style.color = '#ef4444';
+footer.querySelector('a.developers-link').style.color = '#60a5fa';
+
+
   }
 }
 
@@ -224,7 +241,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Export for manual initialization
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Footer;
-}

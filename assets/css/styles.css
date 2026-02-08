@@ -2329,7 +2329,7 @@ body {
 /* Staff Grid Responsive */
 @media (max-width: 768px) {
   .staff-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
   }
 
@@ -2804,7 +2804,7 @@ body {
 }
 
 .social-link-card:hover {
-  background: var(--accent-teal);
+  /* background: var(--accent-teal); */
   border-color: var(--accent-teal);
   transform: translateY(-5px);
 }
@@ -3136,8 +3136,11 @@ textarea.form-input {
 
 .event-badge {
   display: inline-block;
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem ;
   border-radius: 50px;
+  width: 60px;
+  margin-left: 30px;
+  text-align: center;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -3600,6 +3603,7 @@ textarea.form-input {
     width: 100%;
     min-width: 100%;
     height: 150px;
+    object-fit: cover;
   }
 
   .card-department .card-body {

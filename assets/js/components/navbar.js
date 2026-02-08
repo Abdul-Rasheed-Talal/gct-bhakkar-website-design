@@ -117,9 +117,9 @@ document.head.appendChild(style);
                     </div>
                     <div class="top-bar-right">
                         <div class="top-bar-social">
-                            <a href="https://facebook.com/gctbhakkar" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/gctbhakkar/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://youtube.com/@gctbhakkar" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://facebook.com/gctbhakkar" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/gctbhakkar/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com/@gctbhakkar" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -295,3 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Header;
 }
+const shareBtn = document.getElementById("shareBtn");
+const shareOptions = document.getElementById("shareOptions");
+
+shareBtn.addEventListener("click", () => {
+  shareBtn.classList.toggle("active");
+  shareOptions.classList.toggle("show");
+});
