@@ -9,6 +9,24 @@ class Header {
         this.basePath = options.basePath || './';
         this.currentPage = options.currentPage || 'home';
         this.init();
+        
+        const style = document.createElement('style');
+style.innerHTML = `
+body:not(.dark) #navbarNavWrapper.show .nav-link {
+    color: white !important;
+}
+body:not(.dark) #navbarNavWrapper.show .nav-link:hover {
+    color: #2563eb !important;
+}
+body:not(.dark) #navbarNavWrapper.show .dropdown-item {
+    color: #494949 !important;
+}
+body:not(.dark) #navbarNavWrapper.show .dropdown-item:hover {
+    color: #2563eb !important;
+}
+    `;
+document.head.appendChild(style);
+
     }
 
     init() {
@@ -195,23 +213,25 @@ class Header {
         }
 
         // Mobile dropdown toggle
-        const dropdowns = document.querySelectorAll('.nav-item.dropdown');
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('.nav-link');
+const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector('.nav-link');
 
-            link?.addEventListener('click', (e) => {
-                if (window.innerWidth <= 1024) {
-                    e.preventDefault();
+    link?.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1024) {
+            if (e.target.closest('.dropdown-arrow')) {
+                e.preventDefault();
 
-                    // Close other dropdowns
-                    dropdowns.forEach(d => {
-                        if (d !== dropdown) d.classList.remove('open');
-                    });
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) d.classList.remove('open');
+                });
 
-                    dropdown.classList.toggle('open');
-                }
-            });
-        });
+                dropdown.classList.toggle('open');
+            }
+        }
+    });
+});
+
 
         // Close mobile menu on link click
         const navLinks = document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown .nav-link), .dropdown-item');

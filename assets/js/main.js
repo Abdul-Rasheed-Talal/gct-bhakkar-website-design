@@ -109,3 +109,70 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = App;
 }
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('campusVideo');
+  const playBtn = document.getElementById('playPauseBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const progress = document.getElementById('videoProgress');
+  const currentTimeEl = document.getElementById('currentTime');
+  const durationEl = document.getElementById('duration');
+
+  // Update time display
+  const formatTime = sec => {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${s < 10 ? '0'+s : s}`;
+  };
+
+  video.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(video.duration);
+  });
+
+  // Play/Pause button
+  playBtn.addEventListener('click', () => {
+    if(video.paused){
+      video.play();
+      playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+      video.pause();
+      playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+  });
+
+  // Mute/Unmute button
+  muteBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    muteBtn.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+  });
+
+  // Video progress bar
+  video.addEventListener('timeupdate', () => {
+    const percent = (video.currentTime / video.duration) * 100;
+    progress.value = percent;
+    currentTimeEl.textContent = formatTime(video.currentTime);
+  });
+
+  progress.addEventListener('input', () => {
+    video.currentTime = (progress.value / 100) * video.duration;
+  });
+
+  // Scroll-based autoplay/pause
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        video.play().catch(() => console.log("Autoplay blocked"));
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      } else {
+        video.pause();
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(video);
+});

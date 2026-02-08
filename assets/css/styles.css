@@ -3153,10 +3153,12 @@ textarea.form-input {
 .event-badge.sports {
   background: rgba(16, 185, 129, 0.15);
   color: #10b981;
+  padding: 4px 10px !important;
 }
 
 .event-badge.cultural {
   background: rgba(139, 92, 246, 0.15);
+    padding: 4px 10px !important;
   color: #8b5cf6;
 }
 
@@ -4390,120 +4392,58 @@ textarea.form-input {
   --text-primary: #e2e8f0 !important;
   --bg-primary: transparent !important;
 }
-/* .............. accordion-button modification for dark theme................ */
-.accordion-button::after {
-  filter: invert(1);
-}
-.accordion-button::after {
-  background-image: var(--bs-accordion-btn-icon);
-  filter: brightness(0) saturate(100%) invert(74%) sepia(20%) saturate(500%) hue-rotate(180deg);
-}
-.my-share-container {
-  position: fixed !important;
-  top: 700px;
-  left: 20px;
-  z-index: 9999;
+
+
+
+/* VIP Video Card Styles */
+.video-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
-.share-btn {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+.video-card video {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.share-btn.active {
-  transform: rotate(180deg);
+.video-card:hover video {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-.share-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Controls */
+.video-controls {
   position: absolute;
-  bottom: 65px;
-  left: 0; 
+  bottom: 0;
+  left: 0;
   opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s ease;
-}
-
-.share-options.show {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.share-option {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  color: #fff;
+   transition: opacity 0.3s;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  gap: 10px;
+  padding: 10px;
+}
+.video-card:hover .video-controls {
+  opacity: 1;
+}
+.video-controls .control-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.share-option.whatsapp { background: #25D366; }
-.share-option.facebook { background: #1877F2; }
-.share-option.youtube { background: #FF0000; }
-/* 📱 Mobile screens */
-@media (max-width: 600px) {
-  .my-share-container {
-    top: auto;
-    bottom: 20px;
-    left: 15px;
-  }
-
-  .share-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-  }
-
-  .share-option {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
-  }
+#videoProgress {
+  flex: 1;
+  cursor: pointer;
 }
-
-/* 📲 Tablets */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .my-share-container {
-    top: 500px; 
-    left: 25px;
-  }
-
-  .share-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.1rem;
-  }
-
-  .share-option {
-    width: 42px;
-    height: 42px;
-    font-size: 1rem;
-  }
+#currentTime, #duration {
+  color: #fff;
+  font-size: 14px;
 }
-
-/* 💻 Large desktops */
-@media (min-width: 1025px) {
-  .my-share-container {
-    top: 700px;  
-    left: 30px;
-  }
-}
-
