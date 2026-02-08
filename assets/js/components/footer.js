@@ -141,7 +141,7 @@ class Footer {
                     </div>
                     <div class="footer-contact-text">
                       <span class="footer-contact-label">Address</span>
-                      <span class="footer-contact-value">GCT Campus, Main Road,<br>Bhakkar, Punjab, Pakistan</span>
+                      <span class="footer-contact-value">GCT Campus, DHQ Road, Near Thal Univeristy,<br>Bhakkar, Punjab, Pakistan</span>
                     </div>
                   </div>
                   <div class="footer-contact-item">

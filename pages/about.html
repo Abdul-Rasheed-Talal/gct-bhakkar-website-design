@@ -80,6 +80,103 @@
             </div>
         </section>
 
+        <!-- VIP Video Card Section -->
+<section class="section" data-animate="fadeInUp">
+  <div class="container text-center">
+    <h2 class="section-title mb-4">Explore Our Campus</h2>
+    <p class="section-subtitle mb-5">Watch our facilities, labs, and events in action</p>
+
+    <div class="video-card mx-auto shadow-xl rounded-2xl overflow-hidden" style="max-width: 800px;">
+      <video id="campusVideo" width="100%" playsinline preload="metadata" poster="../assets/images/college-side-view.jpg">
+        <source src="../assets/video/event.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Video Controls -->
+      <div class="video-controls">
+        <button id="playPauseBtn" class="control-btn"><i class="fas fa-play"></i></button>
+        <button id="muteBtn" class="control-btn"><i class="fas fa-volume-up"></i></button>
+        <input type="range" id="videoProgress" min="0" max="100" value="0">
+        <span id="currentTime">0:00</span> / <span id="duration">3:59</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Successful Students Section -->
+<section class="section section-darker" data-animate="fadeInUp">
+  <div class="container text-center">
+    <h2 class="section-title mb-4">Our Successful Students</h2>
+    <p class="section-subtitle mb-5">Celebrating achievements and inspiring future leaders</p>
+
+    <div class="grid grid-3">
+      <!-- Single Student Card -->
+      <div class="card student-card shadow-lg rounded-2xl overflow-hidden" data-animate="fadeInUp">
+        <img src="../assets/images/students/student1.jpg" alt="Student Name" class="w-full">
+        <div class="card-body p-4">
+          <h5 class="card-title">Ali Khan</h5>
+          <p class="card-text">Diploma in Computer Information technology</p>
+          <p class="card-text"><i class="fas fa-trophy text-accent me-2"></i>Placed at Google</p>
+          <button class="btn btn-sm btn-accent play-video-btn" data-video="../assets/video/student1.mp4">
+            Watch Testimonial
+          </button>
+        </div>
+      </div>
+
+      <!-- Add more cards similarly -->
+      <div class="card student-card shadow-lg rounded-2xl overflow-hidden" data-animate="fadeInUp" data-delay="100">
+        <img src="../assets/images/students/student2.jpg" alt="Student Name" class="w-full">
+        <div class="card-body p-4">
+          <h5 class="card-title">Sara Ahmed</h5>
+          <p class="card-text">Diploma in Electrical</p>
+          <p class="card-text"><i class="fas fa-trophy text-accent me-2"></i>Top Performer in Internship</p>
+          <button class="btn btn-sm btn-accent play-video-btn" data-video="../assets/video/student2.mp4">
+            Watch Testimonial
+          </button>
+        </div>
+      </div>
+            <!-- Add more cards similarly -->
+      <div class="card student-card shadow-lg rounded-2xl overflow-hidden" data-animate="fadeInUp" data-delay="100">
+        <img src="../assets/images/students/student2.jpg" alt="Student Name" class="w-full">
+        <div class="card-body p-4">
+          <h5 class="card-title">Sara Ahmed</h5>
+          <p class="card-text">Diploma in Electronics</p>
+          <p class="card-text"><i class="fas fa-trophy text-accent me-2"></i>Top Performer in Internship</p>
+          <button class="btn btn-sm btn-accent play-video-btn" data-video="../assets/video/student2.mp4">
+            Watch Testimonial
+          </button>
+        </div>
+      </div>
+            <!-- Add more cards similarly -->
+      <div class="card student-card shadow-lg rounded-2xl overflow-hidden" data-animate="fadeInUp" data-delay="100">
+        <img src="../assets/images/students/student2.jpg" alt="Student Name" class="w-full">
+        <div class="card-body p-4">
+          <h5 class="card-title">Sara Ahmed</h5>
+          <p class="card-text">Diploma in Mechanical</p>
+          <p class="card-text"><i class="fas fa-trophy text-accent me-2"></i>Top Performer in Internship</p>
+          <button class="btn btn-sm btn-accent play-video-btn" data-video="../assets/video/student2.mp4">
+            Watch Testimonial
+          </button>
+        </div>
+      </div>
+            <!-- Add more cards similarly -->
+      <div class="card student-card shadow-lg rounded-2xl overflow-hidden" data-animate="fadeInUp" data-delay="100">
+        <img src="../assets/images/students/student2.jpg" alt="Student Name" class="w-full">
+        <div class="card-body p-4">
+          <h5 class="card-title">Sara Ahmed</h5>
+          <p class="card-text">Diploma in Electronics</p>
+          <p class="card-text"><i class="fas fa-trophy text-accent me-2"></i>Top Performer in Internship</p>
+          <button class="btn btn-sm btn-accent play-video-btn" data-video="../assets/video/student2.mp4">
+            Watch Testimonial
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+        
         <!-- Mission, Vision, Values Section -->
         <section class="section section-darker">
             <div class="container">
@@ -87,6 +184,8 @@
                     <h2 class="section-title">Our Mission & Vision</h2>
                     <p class="section-subtitle">Guiding principles that shape our educational philosophy</p>
                 </div>
+
+
 
                 <div class="grid grid-3">
                     <!-- Mission -->

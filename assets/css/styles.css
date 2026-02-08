@@ -4388,3 +4388,58 @@ textarea.form-input {
   --text-primary: #e2e8f0 !important;
   --bg-primary: transparent !important;
 }
+
+
+
+/* VIP Video Card Styles */
+.video-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-card:hover video {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Controls */
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+   transition: opacity 0.3s;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.video-card:hover .video-controls {
+  opacity: 1;
+}
+.video-controls .control-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#videoProgress {
+  flex: 1;
+  cursor: pointer;
+}
+#currentTime, #duration {
+  color: #fff;
+  font-size: 14px;
+}
