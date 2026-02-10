@@ -122,6 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTimeEl = document.getElementById('currentTime');
   const durationEl = document.getElementById('duration');
 
+  // Start video muted
+video.muted = true;
+muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+
+
   // Update time display
   const formatTime = sec => {
     const m = Math.floor(sec / 60);
