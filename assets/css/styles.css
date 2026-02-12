@@ -3148,11 +3148,13 @@ textarea.form-input {
   background: rgba(16, 185, 129, 0.15);
   color: #10b981;
   padding: 4px 10px !important;
+  width: 30%;
 }
 
 .event-badge.cultural {
   background: rgba(139, 92, 246, 0.15);
   color: #8b5cf6;
+  width: 30%;
 }
 
 /* Events Responsive */

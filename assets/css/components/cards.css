@@ -214,39 +214,214 @@
     background: transparent;
 }
 
-/* Read More Button Styling */
-.btn-read-more {
-    background: transparent !important;
-    border: 1px solid var(--card-accent-color, var(--color-accent-primary)) !important;
-    color: var(--card-accent-color, var(--color-accent-primary)) !important;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: all 0.3s ease;
+/* Redesign for Programs Page (.card-department only) */
+.card-department {
+    height: 600px !important;
+    /* Increased height for better 50/50 balance */
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-card);
+    /* Ensure correct bg color */
+    border: 1px solid var(--color-border-muted);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-read-more::before {
-    content: '';
+.card-department:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--card-accent-color, var(--color-accent-primary));
+}
+
+.card-department .card-img-wrapper {
+    flex: 1;
+    /* 50% height */
+    height: auto !important;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--card-accent-color, var(--color-accent-primary));
+    /* Accent separator */
+}
+
+.card-department .card-body {
+    flex: 1;
+    /* 50% height */
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.75rem;
+    /* Increased padding */
+    background: linear-gradient(to bottom, var(--color-bg-card), var(--color-bg-secondary));
+    overflow: hidden;
+}
+
+/* Adjust card image for the new height */
+.card-department .card-img {
+    height: 100% !important;
+    width: 100%;
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
-    width: 0%;
-    height: 100%;
-    background: var(--card-accent-color, var(--color-accent-primary));
-    z-index: -1;
-    transition: width 0.3s ease;
+    transition: transform 0.6s ease;
 }
 
-.btn-read-more:hover {
+.card-department:hover .card-img {
+    transform: scale(1.1);
+}
+
+.card-department .card-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+}
+
+.card-department .card-text {
+    /* Limit text lines to prevent overflow */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* Allow one more line */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+/* Ensure Read More button is always visible at bottom */
+.card-department .btn-read-more {
+    margin-top: auto;
+    align-self: flex-start;
+    /* Align left */
+    width: auto !important;
+    /* Auto width instead of full width */
+    padding-left: 0;
+    padding-right: 0;
+    border: none !important;
+    /* Remove border for cleaner look */
+    background: transparent !important;
+}
+
+.card-department .btn-read-more::before {
+    display: none;
+    /* Remove background fill effect */
+}
+
+.card-department .btn-read-more:hover {
+    transform: translateX(5px);
+    /* Move right on hover */
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+/* Dark Mode Override for Technology Cards */
+/* Button Visibility Fixes - High Contrast */
+.card-department .btn-read-more {
+    font-weight: 700 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: auto !important;
+    display: inline-block;
+}
+
+/* Light Mode Button: Slight gray bg, dark blue text */
+[data-theme="light"] .card-department .btn-read-more {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: var(--card-accent-color, #2563eb) !important;
+}
+
+[data-theme="light"] .card-department .btn-read-more:hover {
+    background: var(--card-accent-color, #2563eb) !important;
+    /* Solid color on hover */
     color: #ffffff !important;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-.btn-read-more:hover::before {
-    width: 100%;
+/* Dark Mode Button: Slight white bg, bright cyan text */
+:root:not([data-theme="light"]) .card-department .btn-read-more {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--color-accent-secondary) !important;
+}
+
+:root:not([data-theme="light"]) .card-department .btn-read-more:hover {
+    background: var(--color-accent-secondary) !important;
+    color: #0f172a !important;
+    /* Dark text on bright button */
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.4);
+}
+
+/* Reset old pseudo-element overrides */
+.card-department .btn-read-more::before {
+    display: none !important;
+}
+
+
+/* Career Path Badges - High Contrast */
+.card-department .badge-career,
+.card-department .badge {
+    font-weight: 500;
+    padding: 0.5em 1em;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+/* Dark Mode Badges: White text on dark glass */
+:root:not([data-theme="light"]) .card-department .badge-career {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    /* Force White */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+:root:not([data-theme="light"]) .card-department .badge-career:hover {
+    background: var(--card-accent-color, var(--color-accent-primary)) !important;
+    border-color: var(--card-accent-color, var(--color-accent-primary)) !important;
+    color: #ffffff !important;
+}
+
+/* Light Mode Badges: Dark text on light gray */
+[data-theme="light"] .card-department .badge-career {
+    background: #f1f5f9 !important;
+    /* Slate-100 */
+    color: #1e293b !important;
+    /* Slate-800 */
+    border: 1px solid #cbd5e1 !important;
+    /* Slate-300 */
+}
+
+[data-theme="light"] .card-department .badge-career:hover {
+    background: var(--card-accent-color, #2563eb) !important;
+    color: #ffffff !important;
+    border-color: var(--card-accent-color, #2563eb) !important;
+}
+
+/* Department Header Badge */
+.card-department .badge-dept {
+    background: var(--card-accent-color, var(--color-accent-primary)) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 600;
+}
+
+/* Ensure Card Background is correct */
+.card-department {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border-muted) !important;
+}
+
+[data-theme="light"] .card-department {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .card-department {
+    background: rgba(30, 41, 59, 0.8) !important;
+    backdrop-filter: blur(10px);
 }
 
 /* ===== STAT CARD ===== */
@@ -391,5 +566,33 @@
 @media (max-width: 768px) {
     .card-stat-number {
         font-size: var(--text-3xl);
+    }
+
+    /* Responsive adjustment for 50/50 card */
+    .card-department {
+        height: auto !important;
+        min-height: 0;
+        display: block;
+        /* Stack naturally on mobile */
+    }
+
+    .card-department .card-img-wrapper {
+        flex: none;
+        height: 250px !important;
+        /* Keep good height for image */
+        position: relative;
+        border-bottom-width: 4px;
+    }
+
+    .card-department .card-body {
+        flex: none;
+        height: auto !important;
+        padding: 1.5rem;
+    }
+
+    .card-department .card-text {
+        -webkit-line-clamp: 5;
+        /* More text on mobile */
+        line-clamp: 5;
     }
 }

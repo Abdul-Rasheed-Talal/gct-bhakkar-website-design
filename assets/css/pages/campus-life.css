@@ -111,7 +111,7 @@
 .event-filter-btn.active {
     background: var(--color-accent-tertiary);
     /* using variable */
-    color: white;
+    color: (--color-accent-primary);
     border-color: var(--color-accent-tertiary);
     box-shadow: 0 4px 15px rgba(56, 178, 172, 0.4);
 }

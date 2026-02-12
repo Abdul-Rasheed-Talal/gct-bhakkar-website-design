@@ -376,7 +376,6 @@ img:not([loading="lazy"]) {
 [data-theme="light"] .section-cta {
     background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
 }
-
 [data-theme="light"] .section-cta .section-title,
 [data-theme="light"] .section-cta .section-subtitle,
 [data-theme="light"] .section-cta p {

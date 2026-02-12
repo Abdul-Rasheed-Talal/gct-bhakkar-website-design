@@ -16,9 +16,35 @@ const App = {
   init() {
     this.initComponents();
     this.initBackToTop();
-    this.initPageTransition();
     this.initPreloader();
+    this.loadFeedbackComponent(); // Load Smart Feedback
     console.log('GCT Bhakkar Website Initialized');
+  },
+
+  /**
+   * Dynamically load Feedback Component (JS + CSS)
+   */
+  loadFeedbackComponent() {
+    const header = document.querySelector('header');
+    const basePath = header ? (header.dataset.basePath || './') : './';
+
+    // Load CSS
+    if (!document.querySelector('#feedback-css')) {
+      const link = document.createElement('link');
+      link.id = 'feedback-css';
+      link.rel = 'stylesheet';
+      link.href = `${basePath}assets/css/components/feedback.css`;
+      document.head.appendChild(link);
+    }
+
+    // Load JS
+    if (!document.querySelector('#feedback-js')) {
+      const script = document.createElement('script');
+      script.id = 'feedback-js';
+      script.src = `${basePath}assets/js/components/feedback.js`;
+      script.async = true;
+      document.body.appendChild(script);
+    }
   },
 
   /**

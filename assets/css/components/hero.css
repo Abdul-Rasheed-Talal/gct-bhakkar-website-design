@@ -366,6 +366,7 @@
     line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -375,90 +376,125 @@
 @media (max-width: 1200px) {
     .hero-cards-container {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+    }
+
+    .hero-carousel .carousel-caption {
+        top: 40%;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-cards {
+        bottom: 10%;
     }
 }
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 80vh;
+        min-height: 100vh;
+        /* Keep full height on mobile */
+    }
+
+    .hero-content {
+        padding-top: 6rem;
     }
 
     .hero-title {
-        font-size: var(--text-4xl);
+        font-size: 2.75rem;
+        margin-bottom: var(--space-4);
     }
 
     .hero-subtitle {
-        font-size: var(--text-lg);
+        font-size: 1.1rem;
+        margin-bottom: var(--space-6);
+        padding: 0 1rem;
     }
 
+    /* Stack buttons */
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
 
     .hero-buttons .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
     }
 
+    /* Move caption up to make room for cards */
+    .hero-carousel .carousel-caption {
+        top: 35%;
+        padding-bottom: 0;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+    }
+
+    /* Mobile Hero Cards - Horizontal Scroll */
+    .hero-cards {
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 40;
+        /* Ensure above overlay */
+    }
+
+    .hero-cards-container {
+        display: flex;
+        /* Flex instead of grid */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+    }
+
+    .hero-cards-container::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
+    }
+
+    .hero-card {
+        min-width: 260px;
+        /* Fixed width for scrolling */
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    /* Adjust page hero for mobile */
     .hero-page {
         min-height: 40vh;
     }
 
     .hero-page .hero-title {
-        font-size: var(--text-3xl);
-    }
-
-    /* Mobile Hero Cards - Horizontal Scroll */
-    .hero-cards {
-        display: block;
-        bottom: 2rem;
-        padding: 0;
-        left: 0;
-        width: 100%;
-    }
-
-    .hero-cards-container {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: var(--space-4);
-        padding: 0 var(--space-4) var(--space-4) var(--space-4);
-        -webkit-overflow-scrolling: touch;
-        /* Smooth scrolling on iOS */
-        scrollbar-width: none;
-        /* Firefox */
-    }
-
-    .hero-cards-container::-webkit-scrollbar {
-        display: none;
-        /* Chrome/Safari */
-    }
-
-    .hero-card {
-        min-width: 260px;
-        scroll-snap-align: center;
-        margin-right: 0;
-    }
-
-    /* Adjust Caption for Mobile to make room */
-    .hero-carousel .carousel-caption {
-        top: 35%;
-        transform: translateY(-50%);
+        font-size: 2.5rem;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
     .hero-title {
-        font-size: var(--text-3xl);
+        font-size: 2.25rem;
     }
 
-    .hero-subtitle {
-        font-size: var(--text-base);
+    .hero-carousel .carousel-caption {
+        top: 32%;
     }
 
-    .hero-content {
-        padding: var(--space-4);
+    .hero-card {
+        min-width: 240px;
     }
 }
 
