@@ -18,8 +18,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Main CSS -->
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../assets/css/base/theme.css">
+
+    <!-- Components CSS -->
+    <link rel="stylesheet" href="../assets/css/components/buttons.css">
+    <link rel="stylesheet" href="../assets/css/components/navbar.css">
+    <link rel="stylesheet" href="../assets/css/components/hero.css">
+    <link rel="stylesheet" href="../assets/css/components/cards.css">
+    <link rel="stylesheet" href="../assets/css/components/footer.css">
+    <link rel="stylesheet" href="../assets/css/components/preloader.css">
+    <link rel="stylesheet" href="../assets/css/layouts/sections.css">
+
+    <!-- Main Entry Point -->
     <link rel="stylesheet" href="../assets/css/main.css">
+
+    <!-- Legacy Styles -->
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/pages/admissions.css">
 
     <title>Admissions - GCT Bhakkar</title>
 </head>
@@ -150,9 +169,18 @@
                     <p class="section-subtitle">Affordable education with annual fee breakdown</p>
                 </div>
 
+                <!-- Fee Toggle -->
+                <div class="fee-toggle-container" data-animate="fadeInUp">
+                    <div class="fee-toggle" id="feeToggle">
+                        <div class="fee-toggle-slider"></div>
+                        <div class="fee-toggle-option active" data-shift="morning">Morning Shift</div>
+                        <div class="fee-toggle-option" data-shift="evening">Evening / Self-Finance</div>
+                    </div>
+                </div>
+
                 <div class="grid grid-3" style="gap: 2rem;">
                     <!-- Morning Shift Programs -->
-                    <div class="card card-price" data-animate="fadeInUp">
+                    <div class="card card-price visible" data-animate="fadeInUp" data-shifts="morning">
                         <div class="card-price-header">
                             <span class="card-price-title">Electronics Technology</span>
                         </div>
@@ -164,7 +192,7 @@
                         <a href="./departments/electronics.html" class="btn btn-outline-primary">View Program</a>
                     </div>
 
-                    <div class="card card-price" data-animate="fadeInUp" data-delay="100">
+                    <div class="card card-price visible" data-animate="fadeInUp" data-delay="100" data-shifts="morning">
                         <div class="card-price-header">
                             <span class="card-price-title">Electrical Technology</span>
                         </div>
@@ -176,7 +204,7 @@
                         <a href="./departments/electrical.html" class="btn btn-outline-primary">View Program</a>
                     </div>
 
-                    <div class="card card-price" data-animate="fadeInUp" data-delay="200">
+                    <div class="card card-price visible" data-animate="fadeInUp" data-delay="200" data-shifts="morning">
                         <div class="card-price-header">
                             <span class="card-price-title">Mechanical Technology</span>
                         </div>
@@ -188,7 +216,7 @@
                         <a href="./departments/mechanical.html" class="btn btn-outline-primary">View Program</a>
                     </div>
 
-                    <div class="card card-price" data-animate="fadeInUp">
+                    <div class="card card-price visible" data-animate="fadeInUp" data-shifts="morning">
                         <div class="card-price-header">
                             <span class="card-price-title">Civil Technology</span>
                         </div>
@@ -200,8 +228,8 @@
                         <a href="./departments/civil.html" class="btn btn-outline-primary">View Program</a>
                     </div>
 
-                    <div class="card card-price" style="border: 2px solid var(--color-accent-primary);"
-                        data-animate="fadeInUp" data-delay="100">
+                    <div class="card card-price visible" style="border: 2px solid var(--color-accent-primary);"
+                        data-animate="fadeInUp" data-delay="100" data-shifts="evening">
                         <div class="card-price-header">
                             <span class="card-price-title text-accent">Computer Technology</span>
                             <span class="badge"
@@ -215,7 +243,7 @@
                         <a href="./departments/cit.html" class="btn btn-outline-primary">View Program</a>
                     </div>
 
-                    <div class="card card-price" data-animate="fadeInUp" data-delay="200">
+                    <div class="card card-price visible" data-animate="fadeInUp" data-delay="200" data-shifts="evening">
                         <div class="card-price-header">
                             <span class="card-price-title">Electrical (2nd Shift)</span>
                         </div>
@@ -277,110 +305,103 @@
 
                 <div class="row justify-content-center">
                     <div class="col-lg-8" data-animate="fadeInUp">
-                        <div class="accordion" id="faqAccordion">
-                            <div class="accordion-item"
-                                style="background: var(--color-bg-card); border: 1px solid var(--color-border-muted); margin-bottom: 1rem; border-radius: 0.75rem; overflow: hidden;">
+                        <div class="accordion faq-accordion" id="faqAccordion">
+                            <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq1"
-                                        style="background: var(--color-bg-card); color: var(--color-text-primary);">
+                                        data-bs-target="#faq1">
                                         What is the last date to apply?
                                     </button>
                                 </h2>
                                 <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body" style="color: var(--color-text-secondary);">
+                                    <div class="accordion-body">
                                         Applications are typically accepted until August 31st. Early submission is
                                         recommended to avail early admission discount.
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="accordion-item"
-                                style="background: var(--color-bg-card); border: 1px solid var(--color-border-muted); margin-bottom: 1rem; border-radius: 0.75rem; overflow: hidden;">
+                            <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq2"
-                                        style="background: var(--color-bg-card); color: var(--color-text-primary);">
+                                        data-bs-target="#faq2">
                                         What will I learn in the CIT program?
                                     </button>
                                 </h2>
                                 <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body" style="color: var(--color-text-secondary);">
-                                        You will learn web development, programming, computer hardware, networking, databases, operating systems, and basic cybersecurity skills required in the IT industry.
+                                    <div class="accordion-body">
+                                        You will learn web development, programming, computer hardware, networking,
+                                        databases, operating systems, and basic cybersecurity skills required in the IT
+                                        industry.
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item"
-                                style="background: var(--color-bg-card); border: 1px solid var(--color-border-muted); margin-bottom: 1rem; border-radius: 0.75rem; overflow: hidden;">
+                            <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq3"
-                                        style="background: var(--color-bg-card); color: var(--color-text-primary);">
+                                        data-bs-target="#faq3">
                                         Can I pay fees in installments?
                                     </button>
                                 </h2>
                                 <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body" style="color: var(--color-text-secondary);">
-                                        Yes, tuition fees can be paid in 2 installments in a year. Contact the accounts office for
+                                    <div class="accordion-body">
+                                        Yes, tuition fees can be paid in 2 installments in a year. Contact the accounts
+                                        office for
                                         the installment plan.
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item"
-                                style="background: var(--color-bg-card); border: 1px solid var(--color-border-muted); margin-bottom: 1rem; border-radius: 0.75rem; overflow: hidden;">
+                            <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq4"
-                                        style="background: var(--color-bg-card); color: var(--color-text-primary);">
-                                       Can I do freelancing after CIT?
+                                        data-bs-target="#faq4">
+                                        Can I do freelancing after CIT?
                                     </button>
                                 </h2>
                                 <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body" style="color: var(--color-text-secondary);">
-                                        Absolutely. CIT students can work online as freelancers on platforms like Fiverr, Upwork, and Freelancer after learning skills like web development, graphic tools, and MS Office.
+                                    <div class="accordion-body">
+                                        Absolutely. CIT students can work online as freelancers on platforms like
+                                        Fiverr, Upwork, and Freelancer after learning skills like web development,
+                                        graphic tools, and MS Office.
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="accordion-item"
-                                style="background: var(--color-bg-card); border: 1px solid var(--color-border-muted); margin-bottom: 1rem; border-radius: 0.75rem; overflow: hidden;">
+                            <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq5"
-                                        style="background: var(--color-bg-card); color: var(--color-text-primary);">
+                                        data-bs-target="#faq5">
                                         What documents are required for admission?
                                     </button>
                                 </h2>
                                 <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body" style="color: var(--color-text-secondary);">
+                                    <div class="accordion-body">
                                         CNIC/B-Form, previous academic certificates (Matric/Inter), domicile, character
                                         certificate from previous institution, and 4 passport-size photographs.
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="accordion-item"
-                                style="background: var(--color-bg-card); border: 1px solid var(--color-border-muted); border-radius: 0.75rem; overflow: hidden;">
+                            <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq6"
-                                        style="background: var(--color-bg-card); color: var(--color-text-primary);">
+                                        data-bs-target="#faq6">
                                         What jobs can I get after CIT?
                                     </button>
                                 </h2>
                                 <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                    <div class="accordion-body" style="color: var(--color-text-secondary);">
+                                    <div class="accordion-body">
                                         You can apply for positions such as:
 
-Web Developer
+                                        Web Developer
 
-IT Support Technician
+                                        IT Support Technician
 
-Data Entry Officer
+                                        Data Entry Officer
 
-Network Assistant
+                                        Network Assistant
 
-Computer Operator
+                                        Computer Operator
                                     </div>
                                 </div>
                             </div>
@@ -425,6 +446,7 @@ Computer Operator
 
     <!-- Main App Script -->
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/pages/admissions.js"></script>
 </body>
 
 </html>

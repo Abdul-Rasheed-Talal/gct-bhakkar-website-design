@@ -304,7 +304,8 @@ img:not([loading="lazy"]) {
 }
 
 [data-theme="light"] .hero-subtitle {
-    color: #475569 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
 }
 
 [data-theme="light"] .hero-page .hero-subtitle {
@@ -426,6 +427,7 @@ img:not([loading="lazy"]) {
 [data-theme="light"] .card-stat-number {
     color: #3b82f6 !important;
 }
+
 /* ----- All Text Elements ----- */
 [data-theme="light"] h1:not(.hero-title):not(.carousel-caption h1),
 [data-theme="light"] h2:not(.section-cta h2),
@@ -441,6 +443,7 @@ img:not([loading="lazy"]) {
 [data-theme="light"] p:not(.hero-subtitle):not(.section-cta p):not(.card-text):not(.card-beside p):not(footer p) {
     color: #555454 !important;
 }
+
 /* data theme for card beside */
 [data-theme="light"] .card-beside p {
     color: #afafaf !important;
@@ -762,8 +765,31 @@ img:not([loading="lazy"]) {
 
 /* ----- Hero Carousel (Home Page) ----- */
 /* Hero section - make light theme match dark theme appearance */
+/* Hero section - make light theme match dark theme appearance */
 [data-theme="light"] .hero-bg-overlay {
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.35) 100%) !important;
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.85) 90%) !important;
+}
+
+/* Ensure Hero Cards remain dark with white text even in light theme */
+[data-theme="light"] .hero-card-title,
+[data-theme="light"] .hero-card h3 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .hero-card-text,
+[data-theme="light"] .hero-card p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] .hero-card {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+}
+
+[data-theme="light"] .hero-card:hover {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border-color: var(--card-accent-color) !important;
 }
 
 /* Light theme - Page Heroes (sub-pages) */

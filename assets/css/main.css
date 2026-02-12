@@ -7,21 +7,55 @@
 /* Bootstrap is linked separately in HTML for better caching */
 
 /* ===== BASE ===== */
-@import url('./base/variables.css');
-@import url('./base/theme.css');
-@import url('./base/reset.css');
-@import url('./base/typography.css');
+/* ===== BASE ===== */
+/* CSS Modules are now loaded directly in HTML for better performance */
+/* @import url('./base/variables.css'); */
+/* @import url('./base/theme.css'); */
+/* @import url('./base/reset.css'); */
+/* @import url('./base/typography.css'); */
+
+/* ===== GLOBAL UI ENHANCEMENTS ===== */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-tertiary-dark);
+    border-radius: 5px;
+    border: 2px solid var(--color-primary-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-primary);
+}
+
+/* Custom Selection */
+::selection {
+    background: var(--color-accent-primary);
+    color: var(--color-text-on-accent);
+}
+
+/* Smooth Scrolling Globally */
+html {
+    scroll-behavior: smooth;
+}
 
 /* ===== LAYOUTS ===== */
-@import url('./layouts/sections.css');
+/* @import url('./layouts/sections.css'); */
 
 /* ===== COMPONENTS ===== */
-@import url('./components/buttons.css');
-@import url('./components/cards.css');
-@import url('./components/navbar.css');
-@import url('./components/footer.css');
-@import url('./components/hero.css');
-@import url('./components/preloader.css');
+/* @import url('./components/buttons.css'); */
+/* @import url('./components/cards.css'); */
+/* @import url('./components/navbar.css'); */
+/* @import url('./components/footer.css'); */
+/* @import url('./components/hero.css'); */
+/* @import url('./components/preloader.css'); */
 
 /* ===== UTILITY CLASSES ===== */
 

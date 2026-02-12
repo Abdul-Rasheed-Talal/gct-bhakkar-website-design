@@ -68,7 +68,7 @@
     font-size: var(--text-sm);
     margin-bottom: var(--space-4);
 }
- 
+
 /* Card list items */
 .card li {
     color: #e2e8f0;
@@ -120,37 +120,133 @@
 
 /* ===== DEPARTMENT CARD ===== */
 
-.card-department {
+/* ===== DEPARTMENT CARD ===== */
+
+/* ===== DEPARTMENT CARD ===== */
+
+.card-department,
+.card-dep {
     position: relative;
+    border: none;
+    background: rgba(30, 41, 59, 0.7);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-department::before {
+.card-department::before,
+.card-dep::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-gold));
-    z-index: 1;
+    background: var(--card-accent-color, linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-gold)));
+    z-index: 2;
+    transition: height 0.3s ease;
 }
 
-.card-department .hover-content {
+.card-department:hover,
+.card-dep:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.card-department:hover::before,
+.card-dep:hover::before {
+    height: 6px;
+}
+
+.card-department .card-img-wrapper,
+.card-dep .card-img-wrapper {
+    height: 220px;
+}
+
+.card-department .card-img,
+.card-dep .card-img {
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-department:hover .card-img,
+.card-dep:hover .card-img {
+    transform: scale(1.15);
+}
+
+.card-department .card-img-overlay,
+.card-dep .card-img-overlay {
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+    opacity: 0.6;
+}
+
+.card-department:hover .card-img-overlay,
+.card-dep:hover .card-img-overlay {
+    opacity: 0.8;
+}
+
+.card-department .hover-content,
+.card-dep .hover-content {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: var(--space-6);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8) 70%, transparent);
     color: white;
     opacity: 0;
     transform: translateY(20px);
-    transition: all var(--transition-base);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
 }
 
-.card-department:hover .hover-content {
+.card-department:hover .hover-content,
+.card-dep:hover .hover-content {
     opacity: 1;
     transform: translateY(0);
+}
+
+.card-department .card-body,
+.card-dep .card-body {
+    position: relative;
+    z-index: 5;
+    background: transparent;
+}
+
+/* Read More Button Styling */
+.btn-read-more {
+    background: transparent !important;
+    border: 1px solid var(--card-accent-color, var(--color-accent-primary)) !important;
+    color: var(--card-accent-color, var(--color-accent-primary)) !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-read-more::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--card-accent-color, var(--color-accent-primary));
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.btn-read-more:hover {
+    color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-read-more:hover::before {
+    width: 100%;
 }
 
 /* ===== STAT CARD ===== */
@@ -159,8 +255,11 @@
     text-align: center;
     padding: var(--space-8);
     background: linear-gradient(135deg, var(--color-secondary-dark), var(--color-primary-dark));
-     display: flex; flex-direction: column; justify-content: center;
-    height: auto; max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    max-height: 200px;
 }
 
 .card-stat-number {
@@ -175,7 +274,8 @@
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wider);
-    word-wrap: break-word; overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* ===== TESTIMONIAL CARD ===== */
@@ -280,10 +380,16 @@
         font-size: var(--text-2xl);
     }
 }
+
 /* this is cchecking */
-@media (max-width: 768px) { .card-img { max-height: 150px; } }
 @media (max-width: 768px) {
-  .card-stat-number {
-    font-size: var(--text-3xl);
-  }
+    .card-img {
+        max-height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-stat-number {
+        font-size: var(--text-3xl);
+    }
 }

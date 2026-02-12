@@ -1,0 +1,257 @@
+/* =========================================
+   Campus Life Page Styles
+   ========================================= */
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Event Cards */
+.event-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--color-accent-tertiary);
+    /* using variable */
+}
+
+.event-card-body {
+    padding: 1.5rem;
+}
+
+.event-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-img {
+    transform: scale(1.05);
+}
+
+.event-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+}
+
+.event-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Event Badges */
+.event-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.event-badge.sports {
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.event-badge.cultural {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fcd34d;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.event-badge i {
+    font-size: 1rem;
+}
+
+/* Event Filters */
+.event-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.event-filter-btn {
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: var(--color-text-light);
+    /* using variable */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-filter-btn:hover,
+.event-filter-btn.active {
+    background: var(--color-accent-tertiary);
+    /* using variable */
+    color: white;
+    border-color: var(--color-accent-tertiary);
+    box-shadow: 0 4px 15px rgba(56, 178, 172, 0.4);
+}
+
+/* Timeline Navigation */
+.timeline-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 1000;
+    padding: 1.5rem 1rem;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Connecting Line */
+.timeline-nav::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    bottom: 2rem;
+    left: 50%;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.timeline-dot::before {
+    content: attr(data-label);
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+/* Arrow for label */
+.timeline-dot::after {
+    content: '';
+    position: absolute;
+    right: 29px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(37, 99, 235, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.timeline-dot:hover::before,
+.timeline-dot:hover::after,
+.timeline-dot.active::before,
+.timeline-dot.active::after {
+    opacity: 1;
+    visibility: visible;
+    right: 30px;
+}
+
+/* Adjust arrow position on hover/active */
+.timeline-dot:hover::after,
+.timeline-dot.active::after {
+    right: 24px;
+}
+
+.timeline-dot:hover {
+    background: var(--color-accent-tertiary);
+    /* using variable */
+    transform: scale(1.2);
+    box-shadow: 0 0 15px var(--color-accent-tertiary);
+}
+
+.timeline-dot.active {
+    background: var(--color-accent-tertiary);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.4);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Campus Cards (Highlights & Facilities) */
+.campus-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-muted);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.campus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent-primary);
+}
+
+.campus-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.red-title {
+    color: var(--color-accent-secondary);
+    /* or primary/tertiary based on preference */
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Stats Cards Override/Enhancement if needed */
+.card-stat {
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

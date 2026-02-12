@@ -32,7 +32,7 @@
   color: var(--text-light) !important;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: var(--accent-teal) !important;
   border-color: var(--accent-teal) !important;
   color: white !important;
@@ -55,7 +55,7 @@
   border-color: var(--accent-teal) !important;
   border-color: #000 !important;
   color: var(--primary-dark) !important;
-}
+} */
 
 /* Global Styles */
 body {
@@ -3070,13 +3070,7 @@ textarea.form-input {
   padding-bottom: 0;
 }
 
-/* Padding and margins are handled by event-card-body now */
-.event-card:has(.event-img) .event-title,
-.event-card:has(.event-img) .event-desc,
-.event-card:has(.event-img) .event-badge {
-  padding-left: 0;
-  padding-right: 0;
-}
+
 
 .event-card:has(.event-img) .event-title {
   margin-top: 0;
@@ -3136,7 +3130,7 @@ textarea.form-input {
 
 .event-badge {
   display: inline-block;
-  padding: 0.35rem ;
+  padding: 0.35rem;
   border-radius: 50px;
   width: 60px;
   margin-left: 30px;
@@ -4411,7 +4405,7 @@ textarea.form-input {
 
 .video-card:hover video {
   transform: scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Controls */
@@ -4420,17 +4414,19 @@ textarea.form-input {
   bottom: 0;
   left: 0;
   opacity: 0;
-   transition: opacity 0.3s;
+  transition: opacity 0.3s;
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px;
 }
+
 .video-card:hover .video-controls {
   opacity: 1;
 }
+
 .video-controls .control-btn {
   background: transparent;
   border: none;
@@ -4443,7 +4439,9 @@ textarea.form-input {
   flex: 1;
   cursor: pointer;
 }
-#currentTime, #duration {
+
+#currentTime,
+#duration {
   color: #fff;
   font-size: 14px;
 }
@@ -4469,7 +4467,7 @@ textarea.form-input {
   align-items: center;
   justify-content: center;
   transition: transform 0.4s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .share-btn.active {
@@ -4482,7 +4480,7 @@ textarea.form-input {
   gap: 10px;
   position: absolute;
   bottom: 65px;
-  left: 0; 
+  left: 0;
   opacity: 0;
   transform: scale(0.8);
   transition: all 0.3s ease;
@@ -4503,12 +4501,21 @@ textarea.form-input {
   justify-content: center;
   text-decoration: none;
   font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.share-option.whatsapp { background: #25D366; }
-.share-option.facebook { background: #1877F2; }
-.share-option.youtube { background: #FF0000; }
+.share-option.whatsapp {
+  background: #25D366;
+}
+
+.share-option.facebook {
+  background: #1877F2;
+}
+
+.share-option.youtube {
+  background: #FF0000;
+}
+
 /* 📱 Mobile screens */
 @media (max-width: 600px) {
   .my-share-container {
@@ -4532,7 +4539,7 @@ textarea.form-input {
 /* 📲 Tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
   .my-share-container {
-    top: 90%; 
+    top: 90%;
     left: 25px;
   }
 
@@ -4552,7 +4559,7 @@ textarea.form-input {
 /* 💻 Large desktops */
 @media (min-width: 1025px) {
   .my-share-container {
-    top: 90%;  
+    top: 90%;
     left: 30px;
   }
 }

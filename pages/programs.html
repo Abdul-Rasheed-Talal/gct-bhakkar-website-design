@@ -18,7 +18,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Main CSS -->
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../assets/css/base/theme.css">
+
+    <!-- Components CSS -->
+    <link rel="stylesheet" href="../assets/css/components/buttons.css">
+    <link rel="stylesheet" href="../assets/css/components/navbar.css">
+    <link rel="stylesheet" href="../assets/css/components/hero.css">
+    <link rel="stylesheet" href="../assets/css/components/cards.css">
+    <link rel="stylesheet" href="../assets/css/components/footer.css">
+    <link rel="stylesheet" href="../assets/css/components/preloader.css">
+    <link rel="stylesheet" href="../assets/css/layouts/sections.css">
+
+    <!-- Main Entry Point -->
     <link rel="stylesheet" href="../assets/css/main.css">
+
+    <!-- Legacy Styles -->
     <link rel="stylesheet" href="../assets/css/styles.css">
 
     <title>Programs - GCT Bhakkar</title>
@@ -32,7 +50,7 @@
         <!-- Hero Section -->
         <section class="hero hero-page">
             <div class="hero-bg">
-             <img src="../assets/images/collage1.jpeg" class="hero-bg-image">
+                <img src="../assets/images/collage1.jpeg" class="hero-bg-image">
 
                 <div class="hero-bg-gradient"></div>
             </div>
@@ -62,38 +80,56 @@
 
                 <div class="grid grid-auto-fit" style="gap: 2rem;">
                     <!-- CIT Department -->
-                    <div class="card card-department" data-animate="fadeInUp" style="--card-accent-color: #2563eb;">
+                    <div class="card card-department h-100" data-animate="fadeInUp"
+                        style="--card-accent-color: #2563eb;">
                         <div class="card-img-wrapper">
-                            <img src="../assets/images/Lab.jpg" class="card-img"
-                                alt="Computer Information Technology">
+                            <img src="../assets/images/Lab.jpg" class="card-img" alt="Computer Information Technology">
                             <div class="card-img-overlay"></div>
                             <div class="hover-content">
                                 <p>Software development, networking, databases, web development, and cybersecurity
                                     fundamentals.</p>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="flex-between mb-3">
-                                <span class="badge"
-                                    style="background: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-opacity-10 text-primary"
+                                    style="background-color: rgba(37, 99, 235, 0.1) !important; color: #2563eb !important;">
                                     <i class="fas fa-laptop-code me-1"></i> CIT
                                 </span>
-                                <span class="text-muted small">3 Years</span>
+                                <span class="badge bg-light text-dark border"><i class="far fa-clock me-1"></i> 3
+                                    Years</span>
                             </div>
-                            <h4 class="card-title">Computer Information Technology</h4>
-                            <p class="card-text">Master cutting-edge software development, network management, and cloud
-                                computing technologies.</p>
-                            <div class="mt-4">
-                                <h6 class="text-accent mb-2">Career Paths:</h6>
-                                <p class="small text-muted mb-0">Software Developer • Network Admin • Database Manager •
-                                    Web Developer</p>
+
+                            <h4 class="card-title mb-2">Computer Information Technology</h4>
+                            <p class="card-text mb-4 flex-grow-1">Master cutting-edge software development, network
+                                management, and cloud computing technologies.</p>
+
+                            <div class="mb-4">
+                                <h6 class="text-uppercase text-muted small fw-bold mb-2"
+                                    style="font-size: 0.75rem; letter-spacing: 1px;">Career Paths</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(37, 99, 235, 0.15); color: #93c5fd; border: 1px solid rgba(147, 197, 253, 0.3);">Software
+                                        Dev</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(37, 99, 235, 0.15); color: #93c5fd; border: 1px solid rgba(147, 197, 253, 0.3);">Network
+                                        Admin</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(37, 99, 235, 0.15); color: #93c5fd; border: 1px solid rgba(147, 197, 253, 0.3);">Database
+                                        Mgr</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(37, 99, 235, 0.15); color: #93c5fd; border: 1px solid rgba(147, 197, 253, 0.3);">Web
+                                        Dev</span>
+                                </div>
                             </div>
-                            <a href="./departments/cit.html" class="btn btn-primary mt-4 w-full">View Details</a>
+
+                            <a href="./departments/cit.html" class="btn btn-primary w-100 btn-read-more mt-auto">Read
+                                More <i class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
 
                     <!-- Electrical Department -->
-                    <div class="card card-department" data-animate="fadeInUp" data-delay="100"
+                    <div class="card card-department h-100" data-animate="fadeInUp" data-delay="100"
                         style="--card-accent-color: #f59e0b;">
                         <div class="card-img-wrapper">
                             <img src="../assets/images/Et3.jpeg" class="card-img" alt="Electrical Technology">
@@ -102,28 +138,44 @@
                                 <p>Power systems, electrical design, control systems, and industrial automation.</p>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="flex-between mb-3">
-                                <span class="badge"
-                                    style="background: #f59e0b; color: #1e293b; padding: 0.5rem 1rem; border-radius: 0.5rem;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-opacity-10"
+                                    style="background-color: rgba(245, 158, 11, 0.1) !important; color: #f59e0b !important;">
                                     <i class="fas fa-bolt me-1"></i> Electrical
                                 </span>
-                                <span class="text-muted small">3 Years</span>
+                                <span class="badge bg-light text-dark border"><i class="far fa-clock me-1"></i> 3
+                                    Years</span>
                             </div>
-                            <h4 class="card-title">Electrical Technology</h4>
-                            <p class="card-text">Learn electrical systems, power generation, distribution, and renewable
-                                energy technologies.</p>
-                            <div class="mt-4">
-                                <h6 class="text-accent mb-2">Career Paths:</h6>
-                                <p class="small text-muted mb-0">Electrical Engineer • Power Systems Tech • Control
-                                    Systems Specialist</p>
+
+                            <h4 class="card-title mb-2">Electrical Technology</h4>
+                            <p class="card-text mb-4 flex-grow-1">Learn electrical systems, power generation,
+                                distribution, and renewable energy technologies.</p>
+
+                            <div class="mb-4">
+                                <h6 class="text-uppercase text-muted small fw-bold mb-2"
+                                    style="font-size: 0.75rem; letter-spacing: 1px;">Career Paths</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(252, 211, 77, 0.3);">Electrical
+                                        Engineer</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(252, 211, 77, 0.3);">Power
+                                        Systems</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(252, 211, 77, 0.3);">Control
+                                        Specialist</span>
+                                </div>
                             </div>
-                            <a href="./departments/electrical.html" class="btn btn-primary mt-4 w-full">View Details</a>
+
+                            <a href="./departments/electrical.html"
+                                class="btn btn-primary w-100 btn-read-more mt-auto">Read More <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
 
                     <!-- Mechanical Department -->
-                    <div class="card card-department" data-animate="fadeInUp" data-delay="200"
+                    <div class="card card-department h-100" data-animate="fadeInUp" data-delay="200"
                         style="--card-accent-color: #10b981;">
                         <div class="card-img-wrapper">
                             <img src="../assets/images/mechenical1.png" class="card-img" alt="Mechanical Technology">
@@ -132,28 +184,44 @@
                                 <p>CAD/CAM, CNC programming, industrial robotics, and precision engineering.</p>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="flex-between mb-3">
-                                <span class="badge"
-                                    style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-opacity-10"
+                                    style="background-color: rgba(16, 185, 129, 0.1) !important; color: #10b981 !important;">
                                     <i class="fas fa-cogs me-1"></i> Mechanical
                                 </span>
-                                <span class="text-muted small">3 Years</span>
+                                <span class="badge bg-light text-dark border"><i class="far fa-clock me-1"></i> 3
+                                    Years</span>
                             </div>
-                            <h4 class="card-title">Mechanical Technology</h4>
-                            <p class="card-text">Comprehensive training in machine design, manufacturing processes, and
-                                thermal engineering.</p>
-                            <div class="mt-4">
-                                <h6 class="text-accent mb-2">Career Paths:</h6>
-                                <p class="small text-muted mb-0">Mechanical Engineer • CAD/CAM Specialist • CNC
-                                    Programmer • Production Manager</p>
+
+                            <h4 class="card-title mb-2">Mechanical Technology</h4>
+                            <p class="card-text mb-4 flex-grow-1">Comprehensive training in machine design,
+                                manufacturing processes, and thermal engineering.</p>
+
+                            <div class="mb-4">
+                                <h6 class="text-uppercase text-muted small fw-bold mb-2"
+                                    style="font-size: 0.75rem; letter-spacing: 1px;">Career Paths</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(110, 231, 183, 0.3);">Mech
+                                        Engineer</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(110, 231, 183, 0.3);">CAD/CAM</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(110, 231, 183, 0.3);">CNC
+                                        Programmer</span>
+                                </div>
                             </div>
-                            <a href="./departments/mechanical.html" class="btn btn-primary mt-4 w-full">View Details</a>
+
+                            <a href="./departments/mechanical.html"
+                                class="btn btn-primary w-100 btn-read-more mt-auto">Read More <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
 
                     <!-- Civil Department -->
-                    <div class="card card-department" data-animate="fadeInUp" style="--card-accent-color: #8b5cf6;">
+                    <div class="card card-department h-100" data-animate="fadeInUp"
+                        style="--card-accent-color: #8b5cf6;">
                         <div class="card-img-wrapper">
                             <img src="../assets/images/civil1.jpeg" class="card-img" alt="Civil Technology">
                             <div class="card-img-overlay"></div>
@@ -161,54 +229,84 @@
                                 <p>Structural design, project management, surveying, and sustainable construction.</p>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="flex-between mb-3">
-                                <span class="badge"
-                                    style="background: #8b5cf6; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-opacity-10"
+                                    style="background-color: rgba(139, 92, 246, 0.1) !important; color: #8b5cf6 !important;">
                                     <i class="fas fa-building me-1"></i> Civil
                                 </span>
-                                <span class="text-muted small">3 Years</span>
+                                <span class="badge bg-light text-dark border"><i class="far fa-clock me-1"></i> 3
+                                    Years</span>
                             </div>
-                            <h4 class="card-title">Civil Technology</h4>
-                            <p class="card-text">Prepare for construction, infrastructure development, and environmental
-                                engineering roles.</p>
-                            <div class="mt-4">
-                                <h6 class="text-accent mb-2">Career Paths:</h6>
-                                <p class="small text-muted mb-0">Civil Engineer • Site Supervisor • Quantity Surveyor •
-                                    Project Manager</p>
+
+                            <h4 class="card-title mb-2">Civil Technology</h4>
+                            <p class="card-text mb-4 flex-grow-1">Prepare for construction, infrastructure development,
+                                and environmental engineering roles.</p>
+
+                            <div class="mb-4">
+                                <h6 class="text-uppercase text-muted small fw-bold mb-2"
+                                    style="font-size: 0.75rem; letter-spacing: 1px;">Career Paths</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(196, 181, 253, 0.3);">Civil
+                                        Engineer</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(196, 181, 253, 0.3);">Site
+                                        Supervisor</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(196, 181, 253, 0.3);">Surveyor</span>
+                                </div>
                             </div>
-                            <a href="./departments/civil.html" class="btn btn-primary mt-4 w-full">View Details</a>
+
+                            <a href="./departments/civil.html" class="btn btn-primary w-100 btn-read-more mt-auto">Read
+                                More <i class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
 
                     <!-- Electronics Department -->
-                    <div class="card card-department" data-animate="fadeInUp" data-delay="100"
+                    <div class="card card-department h-100" data-animate="fadeInUp" data-delay="100"
                         style="--card-accent-color: #ef4444;">
                         <div class="card-img-wrapper">
-                            <img src="../assets/images/electronicsPractical.jpeg" class="card-img" alt="Electronics Technology">
+                            <img src="../assets/images/electronicsPractical.jpeg" class="card-img"
+                                alt="Electronics Technology">
                             <div class="card-img-overlay"></div>
                             <div class="hover-content">
                                 <p>Circuit design, microcontrollers, IoT technologies, and telecommunications.</p>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="flex-between mb-3">
-                                <span class="badge"
-                                    style="background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem;">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-opacity-10"
+                                    style="background-color: rgba(239, 68, 68, 0.1) !important; color: #ef4444 !important;">
                                     <i class="fas fa-microchip me-1"></i> Electronics
                                 </span>
-                                <span class="text-muted small">3 Years</span>
+                                <span class="badge bg-light text-dark border"><i class="far fa-clock me-1"></i> 3
+                                    Years</span>
                             </div>
-                            <h4 class="card-title">Electronics Technology</h4>
-                            <p class="card-text">Advanced electronic systems, embedded systems, signal processing, and
-                                IoT technologies.</p>
-                            <div class="mt-4">
-                                <h6 class="text-accent mb-2">Career Paths:</h6>
-                                <p class="small text-muted mb-0">Electronics Engineer • Embedded Developer • Telecom
-                                    Tech • PCB Designer</p>
+
+                            <h4 class="card-title mb-2">Electronics Technology</h4>
+                            <p class="card-text mb-4 flex-grow-1">Advanced electronic systems, embedded systems, signal
+                                processing, and IoT technologies.</p>
+
+                            <div class="mb-4">
+                                <h6 class="text-uppercase text-muted small fw-bold mb-2"
+                                    style="font-size: 0.75rem; letter-spacing: 1px;">Career Paths</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(252, 165, 165, 0.3);">Electronics
+                                        Eng</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(252, 165, 165, 0.3);">Embedded
+                                        Dev</span>
+                                    <span class="badge rounded-pill fw-normal text-wrap"
+                                        style="background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(252, 165, 165, 0.3);">Telecom
+                                        Tech</span>
+                                </div>
                             </div>
-                            <a href="./departments/electronics.html" class="btn btn-primary mt-4 w-full">View
-                                Details</a>
+
+                            <a href="./departments/electronics.html"
+                                class="btn btn-primary w-100 btn-read-more mt-auto">Read More <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -270,70 +368,55 @@
                 </div>
 
                 <div class="overflow-auto" data-animate="fadeInUp">
-                    <table class="w-full" style="min-width: 700px; border-collapse: collapse;">
+                    <table class="program-comparison-table w-full overflow-auto">
                         <thead>
-                            <tr style="background: var(--color-secondary-dark);">
-                                <th
-                                    style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--color-accent-primary);">
-                                    Program</th>
-                                <th
-                                    style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--color-accent-primary);">
-                                    Duration</th>
-                                <th
-                                    style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--color-accent-primary);">
-                                    Eligibility</th>
-                                <th
-                                    style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--color-accent-primary);">
-                                    Annual Fee</th>
-                                <th
-                                    style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--color-accent-primary);">
-                                    Action</th>
+                            <tr>
+                                <th>Program</th>
+                                <th>Duration</th>
+                                <th>Eligibility</th>
+                                <th>Annual Fee</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--color-border-muted);">
-                                <td style="padding: 1rem;"><i class="fas fa-laptop-code me-2 text-accent"></i> Computer
-                                    Technology</td>
-                                <td style="padding: 1rem; text-align: center;">3 Years</td>
-                                <td style="padding: 1rem; text-align: center;">Matric (Science)</td>
-                                <td style="padding: 1rem; text-align: center;">Rs. 31,000</td>
-                                <td style="padding: 1rem; text-align: center;"><a href="./departments/cit.html"
-                                        class="btn btn-sm btn-outline-primary">Details</a></td>
+                            <tr>
+                                <td><i class="fas fa-laptop-code me-2 text-primary"></i> Computer Technology</td>
+                                <td>3 Years</td>
+                                <td>Matric (Science)</td>
+                                <td>Rs. 31,000</td>
+                                <td><a href="./departments/cit.html" class="btn btn-sm btn-outline-primary">Details</a>
+                                </td>
                             </tr>
-                            <tr style="border-bottom: 1px solid var(--color-border-muted);">
-                                <td style="padding: 1rem;"><i class="fas fa-bolt me-2" style="color: #f59e0b;"></i>
-                                    Electrical Technology</td>
-                                <td style="padding: 1rem; text-align: center;">3 Years</td>
-                                <td style="padding: 1rem; text-align: center;">Matric (Science)</td>
-                                <td style="padding: 1rem; text-align: center;">Rs. 22,000</td>
-                                <td style="padding: 1rem; text-align: center;"><a href="./departments/electrical.html"
-                                        class="btn btn-sm btn-outline-primary">Details</a></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--color-border-muted);">
-                                <td style="padding: 1rem;"><i class="fas fa-cogs me-2" style="color: #10b981;"></i>
-                                    Mechanical Technology</td>
-                                <td style="padding: 1rem; text-align: center;">3 Years</td>
-                                <td style="padding: 1rem; text-align: center;">Matric (Science)</td>
-                                <td style="padding: 1rem; text-align: center;">Rs. 22,000</td>
-                                <td style="padding: 1rem; text-align: center;"><a href="./departments/mechanical.html"
-                                        class="btn btn-sm btn-outline-primary">Details</a></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--color-border-muted);">
-                                <td style="padding: 1rem;"><i class="fas fa-building me-2" style="color: #8b5cf6;"></i>
-                                    Civil Technology</td>
-                                <td style="padding: 1rem; text-align: center;">3 Years</td>
-                                <td style="padding: 1rem; text-align: center;">Matric (Science)</td>
-                                <td style="padding: 1rem; text-align: center;">Rs. 22,000</td>
-                                <td style="padding: 1rem; text-align: center;"><a href="./departments/civil.html"
+                            <tr>
+                                <td><i class="fas fa-bolt me-2 text-warning"></i> Electrical Technology</td>
+                                <td>3 Years</td>
+                                <td>Matric (Science)</td>
+                                <td>Rs. 22,000</td>
+                                <td><a href="./departments/electrical.html"
                                         class="btn btn-sm btn-outline-primary">Details</a></td>
                             </tr>
                             <tr>
-                                <td style="padding: 1rem;"><i class="fas fa-microchip me-2" style="color: #ef4444;"></i>
-                                    Electronics Technology</td>
-                                <td style="padding: 1rem; text-align: center;">3 Years</td>
-                                <td style="padding: 1rem; text-align: center;">Matric (Science)</td>
-                                <td style="padding: 1rem; text-align: center;">Rs. 22,000</td>
-                                <td style="padding: 1rem; text-align: center;"><a href="./departments/electronics.html"
+                                <td><i class="fas fa-cogs me-2 text-success"></i> Mechanical Technology</td>
+                                <td>3 Years</td>
+                                <td>Matric (Science)</td>
+                                <td>Rs. 22,000</td>
+                                <td><a href="./departments/mechanical.html"
+                                        class="btn btn-sm btn-outline-primary">Details</a></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-building me-2 text-purple"></i> Civil Technology</td>
+                                <td>3 Years</td>
+                                <td>Matric (Science)</td>
+                                <td>Rs. 22,000</td>
+                                <td><a href="./departments/civil.html"
+                                        class="btn btn-sm btn-outline-primary">Details</a></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-microchip me-2 text-danger"></i> Electronics Technology</td>
+                                <td>3 Years</td>
+                                <td>Matric (Science)</td>
+                                <td>Rs. 22,000</td>
+                                <td><a href="./departments/electronics.html"
                                         class="btn btn-sm btn-outline-primary">Details</a></td>
                             </tr>
                         </tbody>

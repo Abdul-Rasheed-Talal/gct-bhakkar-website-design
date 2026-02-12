@@ -17,22 +17,51 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Main CSS -->
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../assets/css/base/theme.css">
+
+    <!-- Components CSS -->
+    <link rel="stylesheet" href="../assets/css/components/buttons.css">
+    <link rel="stylesheet" href="../assets/css/components/navbar.css">
+    <link rel="stylesheet" href="../assets/css/components/hero.css">
+    <link rel="stylesheet" href="../assets/css/components/cards.css">
+    <link rel="stylesheet" href="../assets/css/components/footer.css">
+    <link rel="stylesheet" href="../assets/css/components/preloader.css">
+    <link rel="stylesheet" href="../assets/css/layouts/sections.css">
+
+    <!-- Main Entry Point -->
     <link rel="stylesheet" href="../assets/css/main.css">
+
+    <!-- Legacy Styles -->
     <link rel="stylesheet" href="../assets/css/styles.css">
 
     <title>Campus Life - GCT Bhakkar</title>
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="../assets/css/pages/campus-life.css">
 </head>
 
 <body>
     <!-- Dynamic Header Component -->
     <header data-navbar data-base-path="../" data-current-page="campus-life"></header>
 
+    <!-- Timeline Navigation -->
+    <div class="timeline-nav">
+        <a href="#hero" class="timeline-dot active" data-label="Top"></a>
+        <a href="#overview" class="timeline-dot" data-label="Overview"></a>
+        <a href="#highlights" class="timeline-dot" data-label="Highlights"></a>
+        <a href="#facilities" class="timeline-dot" data-label="Facilities"></a>
+        <a href="#events" class="timeline-dot" data-label="Events"></a>
+        <a href="#stats" class="timeline-dot" data-label="Stats"></a>
+    </div>
+
     <main>
         <!-- Hero Section -->
-        <section class="hero hero-page">
+        <section id="hero" class="hero hero-page">
             <div class="hero-bg">
-                <img src="../assets/images/sport1.jpeg" alt="GCT Bhakkar Campus" class="hero-bg-image"
-                    loading="eager">
+                <img src="../assets/images/sport1.jpeg" alt="GCT Bhakkar Campus" class="hero-bg-image" loading="eager">
                 <div class="hero-bg-gradient"></div>
             </div>
             <div class="hero-content">
@@ -51,7 +80,7 @@
         </section>
 
         <!-- Campus Overview -->
-        <section class="section">
+        <section id="overview" class="section">
             <div class="container">
                 <div class="two-col">
                     <div data-animate="fadeInLeft">
@@ -79,7 +108,7 @@
         </section>
 
         <!-- Campus Highlights -->
-        <section class="section section-darker">
+        <section id="highlights" class="section section-darker">
             <div class="container">
                 <div class="section-header" data-animate="fadeInUp">
                     <h2 class="section-title">Campus Highlights</h2>
@@ -145,7 +174,7 @@
         </section>
 
         <!-- Facilities Grid -->
-        <section class="section">
+        <section id="facilities" class="section">
             <div class="container">
                 <div class="section-header" data-animate="fadeInUp">
                     <h2 class="section-title">Campus Facilities</h2>
@@ -245,7 +274,7 @@
                             <p class="event-desc">Compete with top badminton players in a thrilling tournament. Join us
                                 for
                                 flag hoisting, speeches, and cultural performances.</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
@@ -256,7 +285,7 @@
                             <h4 class="event-title">Tug of War</h4>
                             <p class="event-desc">Test your strength in our exciting tug of war competition. A thrilling
                                 display of teamwork and determination.</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
@@ -267,7 +296,7 @@
                             <h4 class="event-title">Volleyball</h4>
                             <p class="event-desc">Join us for an intense volleyball match. Support your department and
                                 enjoy the spirit of competition.</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
                     <div class="event-card" data-category="sports">
@@ -278,11 +307,11 @@
                             <p class="event-desc">Show your strength in our arm wrestling competition. Open to all
                                 weight
                                 categories!</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
-                  
+
 
                     <div class="event-card" data-category="sports">
                         <img src="../assets/images/tenis.png" alt="Table Tennis" class="event-img">
@@ -293,7 +322,7 @@
                                 skill
                                 levels!
                             </p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
@@ -305,7 +334,7 @@
                             <p class="event-desc">Join us for the Race gala and show your skills! Participants of all
                                 ages
                                 welcome!</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
@@ -317,7 +346,7 @@
                             <p class="event-desc">Show your athletic prowess at our annual athletics meet. Participate
                                 in
                                 various track and field events!</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
@@ -328,12 +357,12 @@
                             <h4 class="event-title">Pillow Fighting</h4>
                             <p class="event-desc">Participate in the fun pillow fighting championship and win exciting
                                 prizes!</p>
-                            <span class="event-badge sports">Sports</span>
+                            <span class="event-badge sports"><i class="fas fa-trophy"></i> Sports</span>
                         </div>
                     </div>
 
                     <!-- Cultural Events -->
-                
+
 
 
 
@@ -344,7 +373,7 @@
                             <h4 class="event-title">Global Culture Day</h4>
                             <p class="event-desc">Discover cultures from around the world through immersive activities.
                                 Featuring global cuisines, traditional attire showcases, and cultural workshops.</p>
-                            <span class="event-badge cultural">Cultural</span>
+                            <span class="event-badge cultural"> Cultural</span>
                         </div>
                     </div>
 
@@ -355,7 +384,7 @@
                             <h4 class="event-title">Heritage Appreciation Day</h4>
                             <p class="event-desc">Celebrate the rich heritage of our nation through music and art.
                                 Experience live folk music, painting exhibitions, and storytelling sessions.</p>
-                            <span class="event-badge cultural">Cultural</span>
+                            <span class="event-badge cultural"> Cultural</span>
                         </div>
                     </div>
 
@@ -366,7 +395,7 @@
                             <h4 class="event-title">Traditional Attire Showcase</h4>
                             <p class="event-desc">Witness the beauty of traditional clothing from various regions. Enjoy
                                 fashion parades, cultural dance performances, and interactive sessions.</p>
-                            <span class="event-badge cultural">Cultural</span>
+                            <span class="event-badge cultural"> Cultural</span>
                         </div>
                     </div>
 
@@ -377,15 +406,32 @@
                             <h4 class="event-title">Cultural Unity Fair</h4>
                             <p class="event-desc">A celebration of unity in diversity through shared experiences. Enjoy
                                 cultural games, food festivals, and collaborative art projects.</p>
-                            <span class="event-badge cultural">Cultural</span>
+                            <span class="event-badge cultural"> Cultural</span>
                         </div>
                     </div>
+
+                    <div class="event-card" data-category="cultural">
+                        <img src="../assets/images/Celebrations.JPG" alt="Annual Fun Fair" class="event-img">
+                        <div class="event-card-body">
+                            <h4 class="event-title">Annual Fun Fair</h4>
+                            <p class="event-desc">A day of joy, food, and games. Students set up stalls, manage
+                                activities, and enjoy a day full of entertainment.</p>
+                            <span class="event-badge cultural"> Cultural</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-5" data-animate="fadeInUp">
+                    <a href="#" id="load-more-events" class="btn btn-primary btn-lg px-5">
+                        Load More Events <i class="fas fa-chevron-down ms-2"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Student Life Stats -->
-        <section class="section section-gradient">
+        <section id="stats" class="section section-gradient">
             <div class="container">
                 <div class="row g-4 text-center">
                     <div class="col-12 col-md-6 col-lg-3" data-animate="scaleIn">
@@ -396,19 +442,19 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-3" data-animate="scaleIn" data-delay="100">
                         <div class="card-stat card-glass rounded-3">
-                            <div class="card-stat-number" data-counter="10" data-suffix="+">0</div>
+                            <div class="card-stat-number" data-counter="15" data-suffix="+">0</div>
                             <div class="card-stat-label">Student Clubs</div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3" data-animate="scaleIn" data-delay="200">
                         <div class="card-stat card-glass rounded-3">
-                            <div class="card-stat-number" data-counter="20" data-suffix="+">0</div>
+                            <div class="card-stat-number" data-counter="30" data-suffix="+">0</div>
                             <div class="card-stat-label">Annual Events</div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3" data-animate="scaleIn" data-delay="300">
                         <div class="card-stat card-glass rounded-3">
-                            <div class="card-stat-number" data-counter="5" data-suffix="">0</div>
+                            <div class="card-stat-number" data-counter="12" data-suffix="+">0</div>
                             <div class="card-stat-label">Sports Teams</div>
                         </div>
                     </div>
@@ -452,33 +498,9 @@
     <!-- Main App Script -->
     <script src="../assets/js/main.js"></script>
 
-    <!-- Events Filter Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const filterBtns = document.querySelectorAll('.event-filter-btn');
-            const eventCards = document.querySelectorAll('.event-card');
+    <!-- Page Specific Script -->
+    <script src="../assets/js/pages/campus-life.js"></script>
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-
-                    const filter = btn.dataset.filter;
-
-                    eventCards.forEach(card => {
-                        if (filter === 'all' || card.dataset.category === filter) {
-                            card.classList.remove('hidden');
-                            card.style.animation = 'fadeInUp 0.4s ease forwards';
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

@@ -1,0 +1,165 @@
+/* =========================================
+   Admissions Page Styles
+   ========================================= */
+
+/* Fee Structure Table */
+.fee-structure {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-muted);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.fee-structure::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%);
+    pointer-events: none;
+}
+
+.fee-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border-muted);
+    transition: background-color 0.2s ease;
+}
+
+.fee-row:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: var(--radius-md);
+}
+
+.fee-row:last-child {
+    border-bottom: none;
+}
+
+.fee-label {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.fee-amount {
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.fee-total {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--color-border-default);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-accent-secondary);
+}
+
+/* Toggle Switch */
+.fee-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.fee-toggle {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-muted);
+    border-radius: 50px;
+    padding: 0.5rem;
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.fee-toggle-option {
+    padding: 0.75rem 2rem;
+    z-index: 2;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease;
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    user-select: none;
+}
+
+.fee-toggle-option.active {
+    color: white;
+}
+
+.fee-toggle-slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: calc(100% - 10px);
+    width: calc(50% - 5px);
+    background: var(--color-accent-primary);
+    border-radius: 50px;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.fee-toggle.evening-selected .fee-toggle-slider {
+    transform: translateX(100%);
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+    background: var(--color-accent-secondary);
+}
+
+/* FAQ Accordion */
+.faq-accordion .accordion-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-muted);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-accordion .accordion-button {
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    box-shadow: none;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+    background: var(--color-accent-primary);
+    color: white;
+    box-shadow: none;
+}
+
+.faq-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.faq-accordion .accordion-button::after {
+    filter: invert(1) brightness(2);
+    /* White arrow for dark theme/active state */
+    transition: transform 0.3s ease;
+}
+
+.faq-accordion .accordion-button.collapsed::after {
+    filter: invert(0.6) brightness(0.8);
+    /* Gray arrow for collapsed state */
+}
+
+.faq-accordion .accordion-body {
+    background: var(--color-bg-body);
+    color: var(--color-text-secondary);
+    padding: 1.5rem;
+    line-height: 1.7;
+    border-top: 1px solid var(--color-border-muted);
+}
