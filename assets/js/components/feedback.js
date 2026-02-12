@@ -44,26 +44,40 @@ const Feedback = {
     },
 
     shouldShow() {
-        if (this.state.hasSubmitted) return false;
-        if (this.state.snoozeUntil && Date.now() < this.state.snoozeUntil) return false;
+        if (this.state.hasSubmitted) {
+            console.log('Feedback: Not showing because already submitted.');
+            return false;
+        }
+        if (this.state.snoozeUntil && Date.now() < this.state.snoozeUntil) {
+            const minutesLeft = Math.ceil((this.state.snoozeUntil - Date.now()) / 60000);
+            console.log(`Feedback: Snoozed for ${minutesLeft} more minutes.`);
+            return false;
+        }
         return true;
     },
 
     setupTriggers() {
+        console.log(`Feedback: Triggers setup. Time: ${this.config.timeThreshold}ms, Scroll: ${this.config.scrollThreshold}%`);
+
         // Time Trigger
         setTimeout(() => {
+            console.log('Feedback: Time threshold reached.');
             if (this.shouldShow() && !this.state.isVisible) {
+                console.log('Feedback: Showing via Timer.');
                 this.show();
             }
         }, this.config.timeThreshold);
 
         // Scroll Trigger
         window.addEventListener('scroll', () => {
-            if (this.state.isVisible || !this.shouldShow()) return;
+            if (this.state.isVisible) return;
 
             const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
             if (scrollPercent > this.config.scrollThreshold) {
-                this.show();
+                if (this.shouldShow()) {
+                    console.log('Feedback: Showing via Scroll.');
+                    this.show();
+                }
             }
         }, { passive: true });
     },
@@ -139,6 +153,7 @@ const Feedback = {
     },
 
     show() {
+        console.log('Feedback: show() called');
         this.state.isVisible = true;
         let modal = document.querySelector('.feedback-modal');
         if (!modal) {
@@ -162,6 +177,7 @@ const Feedback = {
         }
 
         if (isSnooze) {
+            console.log('Feedback: Snoozing...');
             this.state.snoozeUntil = Date.now() + this.config.snoozeTime;
             this.saveState();
         }
@@ -187,8 +203,26 @@ const Feedback = {
 
         // Here you would typically send the data to a server
         console.log(`Feedback submitted: ${this.state.rating} stars`, `Comment: ${comment}`);
+    },
+
+    // Debugging Utility
+    reset() {
+        console.log('Feedback: Resetting state.');
+        this.state.hasSubmitted = false;
+        this.state.snoozeUntil = null;
+        this.state.isVisible = false;
+        localStorage.removeItem(this.config.localStorageKey);
+
+        // Remove existing modal if any
+        const modal = document.querySelector('.feedback-modal');
+        if (modal) modal.remove();
+
+        alert('Feedback state reset. Refresh the page to test again.');
     }
 };
+
+// Expose to window for debugging
+window.Feedback = Feedback;
 
 // Initialize
 if (document.readyState === 'loading') {
