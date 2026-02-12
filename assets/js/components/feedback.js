@@ -1,13 +1,14 @@
 /**
  * GCT Bhakkar - Smart Feedback Component
  * Dynamically injected modal for user feedback
+ * Mobile-optimized: swipe-to-dismiss, adjusted triggers, haptic feedback
  */
 
 const Feedback = {
-    // Configuration
+    // Configuration — mobile gets adjusted thresholds
     config: {
-        scrollThreshold: 60, // % scrolled
-        timeThreshold: 30000, // ms (30 seconds)
+        scrollThreshold: window.innerWidth <= 767 ? 40 : 60, // % scrolled
+        timeThreshold: window.innerWidth <= 767 ? 15000 : 30000, // ms
         snoozeTime: 30 * 60 * 1000, // 30 minutes
         localStorageKey: 'gct_feedback_state'
     },
@@ -15,7 +16,9 @@ const Feedback = {
     state: {
         isVisible: false,
         rating: 0,
-        hasSubmitted: false
+        hasSubmitted: false,
+        touchStartY: 0,
+        touchDeltaY: 0
     },
 
     init() {
@@ -102,7 +105,7 @@ const Feedback = {
                         <button class="star-btn" data-value="4"><i class="fas fa-star"></i></button>
                         <button class="star-btn" data-value="5"><i class="fas fa-star"></i></button>
                     </div>
-                    <textarea class="feedback-input" placeholder="Tell us more (optional) or report a bug..." rows="3"></textarea>
+                    <textarea class="feedback-input" placeholder="Tell us more (optional) or report a bug..." rows="2"></textarea>
                 </div>
                 <div class="feedback-actions">
                     <button class="btn-feedback btn-submit" disabled>Submit Feedback</button>
@@ -123,7 +126,6 @@ const Feedback = {
         const stars = modal.querySelectorAll('.star-btn');
         const submitBtn = modal.querySelector('.btn-submit');
         const closeBtn = modal.querySelector('.feedback-close');
-        const input = modal.querySelector('.feedback-input');
 
         // Close
         closeBtn.addEventListener('click', () => this.close(true));
@@ -142,7 +144,12 @@ const Feedback = {
                 });
 
                 submitBtn.disabled = false;
-                submitBtn.textContent = `Submit`;
+                submitBtn.textContent = 'Submit';
+
+                // Haptic feedback on mobile
+                if (navigator.vibrate) {
+                    navigator.vibrate(10);
+                }
             });
         });
 
@@ -150,6 +157,52 @@ const Feedback = {
         submitBtn.addEventListener('click', () => {
             this.submit();
         });
+
+        // Mobile: Swipe down to dismiss
+        this.addSwipeToDismiss(modal);
+    },
+
+    /**
+     * Swipe-down gesture to dismiss the modal on mobile
+     */
+    addSwipeToDismiss(modal) {
+        let startY = 0;
+        let currentY = 0;
+        let isDragging = false;
+
+        modal.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            currentY = startY;
+            isDragging = true;
+            modal.style.transition = 'none';
+        }, { passive: true });
+
+        modal.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentY = e.touches[0].clientY;
+            const deltaY = currentY - startY;
+
+            // Only allow downward drag
+            if (deltaY > 0) {
+                modal.style.transform = `translateY(${deltaY}px)`;
+                modal.style.opacity = Math.max(0, 1 - deltaY / 200);
+            }
+        }, { passive: true });
+
+        modal.addEventListener('touchend', () => {
+            isDragging = false;
+            const deltaY = currentY - startY;
+            modal.style.transition = 'all 0.3s ease';
+
+            if (deltaY > 60) {
+                // Dismiss
+                this.close(true);
+            } else {
+                // Snap back
+                modal.style.transform = '';
+                modal.style.opacity = '';
+            }
+        }, { passive: true });
     },
 
     show() {
@@ -170,6 +223,8 @@ const Feedback = {
         const modal = document.querySelector('.feedback-modal');
         if (modal) {
             modal.classList.remove('visible');
+            modal.style.transform = 'translateY(120%)';
+            modal.style.opacity = '0';
             setTimeout(() => {
                 modal.remove();
                 this.state.isVisible = false;
@@ -192,6 +247,11 @@ const Feedback = {
 
         content.style.display = 'none';
         success.style.display = 'block';
+
+        // Haptic feedback on submit
+        if (navigator.vibrate) {
+            navigator.vibrate([20, 30, 20]);
+        }
 
         this.state.hasSubmitted = true;
         this.saveState();

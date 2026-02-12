@@ -255,3 +255,84 @@
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ===== CAMPUS LIFE RESPONSIVE ===== */
+
+/* --- Tablet & Below (≤991px) --- */
+@media (max-width: 991px) {
+    .timeline-nav {
+        display: none;
+    }
+}
+
+/* --- Mobile (≤767px) --- */
+@media (max-width: 767px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .event-card-body {
+        padding: 1.25rem;
+    }
+
+    .event-img {
+        height: 180px;
+    }
+
+    .event-title {
+        font-size: 1.1rem;
+    }
+
+    .event-desc {
+        font-size: 0.9rem;
+    }
+
+    .event-filters {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .event-filter-btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* --- Small Mobile (≤480px) --- */
+@media (max-width: 480px) {
+    .events-grid {
+        gap: 1rem;
+    }
+
+    .event-img {
+        height: 160px;
+    }
+
+    .event-card-body {
+        padding: 1rem;
+    }
+
+    .event-title {
+        font-size: 1rem;
+    }
+
+    .event-desc {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .event-badge {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .event-filter-btn {
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+    }
+}

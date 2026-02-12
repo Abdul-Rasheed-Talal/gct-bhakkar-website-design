@@ -1631,27 +1631,27 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1399px) {
-  .carousel-caption {
+  .hero-section .carousel-caption {
     top: 35% !important;
     bottom: auto !important;
   }
 
-  .carousel-caption h1 {
+  .hero-section .carousel-caption h1 {
     font-size: 2.5rem;
   }
 }
 
 @media (max-width: 1199px) {
-  .carousel-caption {
+  .hero-section .carousel-caption {
     top: 35% !important;
     bottom: auto !important;
   }
 
-  .carousel-caption h1 {
+  .hero-section .carousel-caption h1 {
     font-size: 2.2rem;
   }
 
-  .carousel-caption p {
+  .hero-section .carousel-caption p {
     font-size: 1rem;
   }
 }
@@ -1687,7 +1687,7 @@ body {
     padding-right: 1rem;
   }
 
-  .carousel-caption {
+  .hero-section .carousel-caption {
     top: 35% !important;
     bottom: auto !important;
     transform: translate(-50%, -50%) !important;
@@ -1695,17 +1695,17 @@ body {
     text-align: center;
   }
 
-  .carousel-caption h1 {
+  .hero-section .carousel-caption h1 {
     font-size: 2.2rem;
     line-height: 1.2;
   }
 
-  .carousel-caption p {
+  .hero-section .carousel-caption p {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
 
-  .carousel-buttons {
+  .hero-section .carousel-buttons {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -1714,7 +1714,7 @@ body {
     width: 100%;
   }
 
-  .carousel-buttons .btn {
+  .hero-section .carousel-buttons .btn {
     width: 100%;
     max-width: 280px;
     margin: 0 auto !important;
@@ -1792,19 +1792,19 @@ body {
     min-height: 550px;
   }
 
-  .carousel-caption {
+  .hero-section .carousel-caption {
     top: 40% !important;
     width: 92%;
     text-align: center;
   }
 
-  .carousel-caption h1 {
+  .hero-section .carousel-caption h1 {
     font-size: 2rem;
     line-height: 1.2;
     margin-bottom: 0.75rem;
   }
 
-  .carousel-caption p {
+  .hero-section .carousel-caption p {
     font-size: 0.95rem;
     margin-bottom: 0.75rem;
     display: -webkit-box;
@@ -1814,7 +1814,7 @@ body {
     overflow: hidden;
   }
 
-  .carousel-buttons {
+  .hero-section .carousel-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1825,7 +1825,7 @@ body {
     margin: 0 auto;
   }
 
-  .carousel-buttons .btn {
+  .hero-section .carousel-buttons .btn {
     padding: 0.6rem 1.5rem;
     font-size: 0.9rem;
     width: auto;
@@ -1864,25 +1864,32 @@ body {
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.98) 100%);
   }
 
-  /* Enhanced Mobile Caption with Glassmorphism */
-  .carousel-caption {
+  /* Mobile Caption — no background blur overlay (legacy hero) */
+  .hero-section .carousel-caption {
     bottom: auto !important;
     top: 42% !important;
     transform: translate(-50%, -50%) !important;
     padding: 1.5rem !important;
     width: 92% !important;
     text-align: center;
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    border: 1px solid rgba(59, 130, 246, 0.15);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      0 0 60px rgba(59, 130, 246, 0.1);
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
 
-  .carousel-caption h1 {
+  /* Remove hero dark overlay on mobile */
+  .hero-section .carousel-item::before {
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.45) 70%,
+        rgba(0, 0, 0, 0.6) 100%) !important;
+  }
+
+  .hero-section .carousel-caption h1 {
     font-size: 1.65rem;
     line-height: 1.25;
     margin-bottom: 0.75rem;
@@ -1891,7 +1898,7 @@ body {
     letter-spacing: -0.02em;
   }
 
-  .carousel-caption h1 .text-primary {
+  .hero-section .carousel-caption h1 .text-primary {
     background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1903,7 +1910,7 @@ body {
     filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.4));
   }
 
-  .carousel-caption p {
+  .hero-section .carousel-caption p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
     line-height: 1.5;
@@ -1916,7 +1923,7 @@ body {
     overflow: hidden;
   }
 
-  .carousel-buttons {
+  .hero-section .carousel-buttons {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -1926,7 +1933,7 @@ body {
     margin-top: 0.5rem;
   }
 
-  .carousel-buttons .btn {
+  .hero-section .carousel-buttons .btn {
     padding: 0.7rem 1.75rem;
     font-size: 0.85rem;
     width: 100%;
@@ -1943,23 +1950,23 @@ body {
     transition: all 0.3s ease;
   }
 
-  .carousel-buttons .btn-primary {
+  .hero-section .carousel-buttons .btn-primary {
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     border: none;
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   }
 
-  .carousel-buttons .btn-primary:active {
+  .hero-section .carousel-buttons .btn-primary:active {
     transform: scale(0.98);
   }
 
-  .carousel-buttons .btn-outline-light {
+  .hero-section .carousel-buttons .btn-outline-light {
     background: rgba(255, 255, 255, 0.08);
     border: 2px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(4px);
   }
 
-  .carousel-buttons .btn-outline-light:active {
+  .hero-section .carousel-buttons .btn-outline-light:active {
     background: rgba(255, 255, 255, 0.15);
   }
 
@@ -2055,20 +2062,20 @@ body {
     min-height: 520px;
   }
 
-  .carousel-caption {
+  .hero-section .carousel-caption {
     top: 40% !important;
     width: 96% !important;
     padding: 1.25rem !important;
     border-radius: 16px;
   }
 
-  .carousel-caption h1 {
+  .hero-section .carousel-caption h1 {
     font-size: 1.4rem;
     line-height: 1.25;
     margin-bottom: 0.5rem;
   }
 
-  .carousel-caption p {
+  .hero-section .carousel-caption p {
     font-size: 0.82rem;
     line-height: 1.45;
     margin-bottom: 0.75rem;
@@ -2076,12 +2083,12 @@ body {
     line-clamp: 2;
   }
 
-  .carousel-buttons {
+  .hero-section .carousel-buttons {
     gap: 0.5rem;
     margin-top: 0.25rem;
   }
 
-  .carousel-buttons .btn {
+  .hero-section .carousel-buttons .btn {
     padding: 0.55rem 1.25rem;
     font-size: 0.78rem;
     max-width: 180px;
@@ -4563,5 +4570,419 @@ textarea.form-input {
   .my-share-container {
     top: 90%;
     left: 30px;
+  }
+}
+
+/* ==============================================
+   MOBILE HORIZONTAL SCROLL CAROUSELS
+   ============================================== */
+
+/* On mobile, .mobile-scroll-row converts vertical card stacks
+   into horizontal swipeable carousels to reduce scroll length. */
+
+@media (max-width: 767px) {
+  .mobile-scroll-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding: 0.5rem 0 1.25rem 0;
+    margin: 0 -0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    scrollbar-width: none;
+  }
+
+  .mobile-scroll-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each card takes ~80% width — shows peek of next card */
+  .mobile-scroll-row>[class*="col-"] {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: start;
+    padding: 0;
+  }
+
+  /* For wider cards (Why Choose Us, etc.) */
+  .mobile-scroll-row.scroll-wide>[class*="col-"],
+  .mobile-scroll-row.scroll-wide>.card,
+  .mobile-scroll-row.scroll-wide>.campus-card {
+    flex: 0 0 85%;
+    max-width: 85%;
+  }
+
+  /* Direct card children (for .grid containers, .events-grid, .projects-grid) */
+  .mobile-scroll-row>.campus-card,
+  .mobile-scroll-row>.card,
+  .mobile-scroll-row>.event-card,
+  .mobile-scroll-row>.project-card {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  /* End spacer so last card can scroll fully into view */
+  .mobile-scroll-row::after {
+    content: '';
+    flex: 0 0 1px;
+    height: 1px;
+  }
+
+  /* Scroll indicator dots */
+  .scroll-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.5rem 0;
+  }
+
+  .scroll-indicator span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .scroll-indicator span.active {
+    width: 18px;
+    border-radius: 3px;
+    background: var(--color-accent-primary, #3b82f6);
+  }
+
+  /* ── Scroll Hint: animated arrow ── */
+
+  .mobile-scroll-row-wrapper {
+    position: relative;
+  }
+
+  /* Animated swipe hint arrow */
+  .scroll-hint {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    animation: scrollHintPulse 2s ease-in-out infinite;
+  }
+
+  .scroll-hint i {
+    font-size: 1rem;
+    animation: scrollHintBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollHintBounce {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(6px);
+    }
+  }
+
+  @keyframes scrollHintPulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  /* Hide hint once user has interacted (scrolled) */
+  .mobile-scroll-row.scrolled~.scroll-hint,
+  .mobile-scroll-row-wrapper.scrolled .scroll-hint {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+}
+
+/* Desktop: scroll indicator & hints hidden */
+@media (min-width: 768px) {
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  .scroll-hint {
+    display: none !important;
+  }
+}
+
+/* ==============================================
+   MOBILE INFINITE MARQUEE SCROLL
+   ============================================== */
+
+@media (max-width: 767px) {
+  .mobile-infinite-scroll {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    gap: 1rem;
+    padding: 0.5rem 0 1rem 0;
+    position: relative;
+  }
+
+  .mobile-infinite-scroll .marquee-track {
+    display: flex;
+    gap: 1rem;
+    animation: marqueeScroll var(--marquee-duration, 15s) linear infinite;
+    will-change: transform;
+  }
+
+  .mobile-infinite-scroll .marquee-track>* {
+    flex: 0 0 75vw;
+    max-width: 75vw;
+    min-width: 0;
+  }
+
+  /* Pause on touch/hover */
+  .mobile-infinite-scroll:active .marquee-track,
+  .mobile-infinite-scroll.paused .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeScroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* ==============================================
+   MOBILE UX OPTIMIZATIONS — ALL SECTIONS
+   ============================================== */
+
+/* --- Tablet & Below (≤991px) --- */
+@media (max-width: 991px) {
+
+  /* Why Choose Us cards — reduce height */
+  .card-why {
+    height: 240px;
+  }
+
+  .card-front img {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Section titles */
+  .campus-life .section-title {
+    font-size: 2rem !important;
+  }
+}
+
+/* --- Mobile (≤767px) --- */
+@media (max-width: 767px) {
+
+  /* Why Choose Us section */
+  .why-choose-section {
+    padding: 50px 15px;
+  }
+
+  .why-choose-section p {
+    margin-bottom: 35px;
+    font-size: 0.95rem;
+  }
+
+  .card-why {
+    height: 220px;
+    margin-bottom: 1rem;
+  }
+
+  .card-front img {
+    width: 130px;
+    height: 130px;
+    border-radius: 16px;
+  }
+
+  .card-bottom h6 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .card-beside h5 {
+    font-size: 1.25rem;
+  }
+
+  .card-beside p {
+    font-size: 0.9rem;
+  }
+
+  /* Campus Life cards */
+  .campus-cards {
+    padding: 20px;
+    margin-top: 25px;
+  }
+
+  .campus-card img {
+    height: 170px;
+  }
+
+  .campus-card .p-3 {
+    padding: 1rem 1.25rem 1.25rem !important;
+  }
+
+  .red-title {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Department cards */
+  .Departments {
+    padding: 50px 0 30px 0;
+  }
+
+  .card-dep {
+    margin-bottom: 1rem;
+  }
+
+  .card-img-top {
+    height: 170px;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-body h5 {
+    font-size: 1rem;
+  }
+
+  .card-body p {
+    font-size: 13px;
+  }
+
+  /* Hero cards section in styles.css (second hero layout) */
+  .hero-cards-section {
+    position: relative;
+    bottom: auto;
+    margin-top: 0;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-card-wrapper {
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .hero-custom-card {
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/* --- Small Mobile (≤480px) --- */
+@media (max-width: 480px) {
+
+  /* Why Choose Us cards */
+  .why-choose-section {
+    padding: 40px 12px;
+  }
+
+  .card-why {
+    height: 200px;
+  }
+
+  .card-front img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .card-front p {
+    font-size: 0.85rem;
+  }
+
+  .card-bottom h6 {
+    font-size: 1rem;
+  }
+
+  /* Campus cards */
+  .campus-cards {
+    padding: 15px;
+  }
+
+  .campus-card img {
+    height: 150px;
+  }
+
+  .red-title {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+
+  .campus-card p {
+    font-size: 0.85rem;
+  }
+
+  /* Department cards */
+  .card-img-top {
+    height: 150px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* Principal section */
+  .principal-section {
+    padding: 30px 0;
+  }
+
+  .principal-card-premium {
+    border-radius: 20px;
+    margin: 0 0.75rem;
+  }
+
+  .principal-profile {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .principal-avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  .principal-message-content {
+    padding: 1.25rem;
+  }
+
+  .message-title {
+    font-size: 1.2rem;
+  }
+
+  .quote-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Section spacing */
+  .section-title {
+    font-size: 1.75rem !important;
   }
 }

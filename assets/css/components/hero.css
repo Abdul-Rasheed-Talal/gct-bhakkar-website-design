@@ -373,105 +373,217 @@
 
 /* ===== RESPONSIVE ===== */
 
+/* --- Tablet Landscape & Small Desktop (992px - 1200px) --- */
 @media (max-width: 1200px) {
     .hero-cards-container {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 900px;
-    }
-
-    .hero-carousel .carousel-caption {
-        top: 40%;
-    }
-}
-
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 3.5rem;
+        max-width: 800px;
+        gap: var(--space-3);
     }
 
     .hero-cards {
-        bottom: 10%;
+        bottom: 8%;
+    }
+
+    .hero-carousel .carousel-caption {
+        top: 30%;
+    }
+
+    .hero-card {
+        padding: var(--space-4);
+    }
+
+    .hero-card-title {
+        font-size: 1rem;
     }
 }
 
-@media (max-width: 768px) {
+/* --- Tablet Portrait (768px - 991px) --- */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-cards {
+        bottom: 5%;
+        padding: 0 var(--space-3);
+    }
+
+    .hero-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+        gap: 0.75rem;
+    }
+
+    .hero-card {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .hero-card-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .hero-card-title {
+        font-size: 0.95rem;
+    }
+
+    .hero-card-text {
+        font-size: 0.75rem;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+    }
+
+    .hero-card-label {
+        font-size: 0.65rem;
+    }
+
+    .hero-carousel .carousel-caption {
+        top: 28%;
+    }
+}
+
+/* --- Mobile Landscape / Large Mobile (576px - 767px) --- */
+@media (max-width: 767px) {
+
+    /* Hero becomes a block container — no flex centering */
     .hero {
-        min-height: 100vh;
-        /* Keep full height on mobile */
+        min-height: auto;
+        display: block;
+        padding-top: 0;
     }
 
     .hero-content {
         padding-top: 6rem;
     }
 
-    .hero-title {
-        font-size: 2.75rem;
-        margin-bottom: var(--space-4);
+    /* CRITICAL: Make carousel flow naturally instead of absolute */
+    .hero-carousel {
+        position: relative;
+        inset: auto;
+        z-index: 1;
     }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: var(--space-6);
-        padding: 0 1rem;
+    /* Carousel slides get a fixed height */
+    .hero-carousel .carousel-item {
+        height: 75vh;
+        min-height: 400px;
     }
 
-    /* Stack buttons */
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .hero-buttons .btn {
+    .hero-carousel .carousel-item img {
+        height: 100%;
         width: 100%;
-        max-width: 280px;
+        object-fit: cover;
     }
 
-    /* Move caption up to make room for cards */
+    /* Lighten the background overlay — let image show through */
+    .hero-bg-overlay {
+        background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.15) 0%,
+                rgba(0, 0, 0, 0.25) 40%,
+                rgba(0, 0, 0, 0.45) 75%,
+                rgba(0, 0, 0, 0.65) 100%) !important;
+    }
+
+    /* Caption stays centered in the slide */
     .hero-carousel .carousel-caption {
-        top: 35%;
+        top: 45%;
+        transform: translateY(-50%);
         padding-bottom: 0;
         left: 5%;
         right: 5%;
         width: 90%;
     }
 
-    /* Mobile Hero Cards - Horizontal Scroll */
-    .hero-cards {
-        position: absolute;
-        bottom: 2rem;
-        left: 0;
-        right: 0;
+    /* Stronger text-shadow for readability */
+    .hero-title {
+        font-size: 2.25rem;
+        margin-bottom: var(--space-3);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7),
+            0 4px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: var(--space-4);
+        padding: 0 1rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Stack buttons */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .hero-buttons .btn {
         width: 100%;
-        padding: 0;
-        z-index: 40;
-        /* Ensure above overlay */
+        max-width: 240px;
+        font-size: 0.85rem;
+        padding: 0.55rem 1.25rem;
+    }
+
+    /* Hero Cards — flow below carousel with subtle bg */
+    .hero-cards {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        width: 100%;
+        padding: 1rem;
+        z-index: 10;
+        background: linear-gradient(to bottom,
+                rgba(15, 23, 42, 0.95) 0%,
+                rgba(15, 23, 42, 1) 100%);
+        margin-top: -2rem;
     }
 
     .hero-cards-container {
-        display: flex;
-        /* Flex instead of grid */
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        /* Hide scrollbar Firefox */
-    }
-
-    .hero-cards-container::-webkit-scrollbar {
-        display: none;
-        /* Hide scrollbar Chrome/Safari */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        max-width: 100%;
+        padding: 0;
     }
 
     .hero-card {
-        min-width: 260px;
-        /* Fixed width for scrolling */
-        flex: 0 0 auto;
-        scroll-snap-align: center;
-        margin: 0;
-        padding: 1rem;
+        padding: 0.75rem;
+        gap: 0.6rem;
+        border-radius: var(--radius-lg);
+        min-width: auto;
+        background: rgba(30, 41, 59, 0.8);
+    }
+
+    .hero-card-icon-wrapper {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 1rem;
+        border-radius: var(--radius-md);
+    }
+
+    .hero-card-label {
+        font-size: 0.6rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .hero-card-title {
+        font-size: 0.85rem;
+    }
+
+    .hero-card-text {
+        display: none;
+    }
+
+    /* Smaller carousel controls on mobile */
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+        width: 2.5rem;
+        height: 2.5rem;
+        opacity: 0.6;
     }
 
     /* Adjust page hero for mobile */
@@ -480,21 +592,96 @@
     }
 
     .hero-page .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
+/* --- Small Mobile (< 480px) --- */
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.25rem;
+        font-size: 1.85rem;
     }
 
-    .hero-carousel .carousel-caption {
-        top: 32%;
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .hero-carousel .carousel-item {
+        height: 65vh;
+        min-height: 350px;
+    }
+
+    .hero-cards {
+        padding: 0.75rem;
+    }
+
+    .hero-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
     }
 
     .hero-card {
-        min-width: 240px;
+        padding: 0.6rem;
+        gap: 0.5rem;
+    }
+
+    .hero-card-icon-wrapper {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 0.85rem;
+    }
+
+    .hero-card-label {
+        font-size: 0.55rem;
+    }
+
+    .hero-card-title {
+        font-size: 0.78rem;
+    }
+
+    .hero-page .hero-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* --- Extra Small Mobile (< 360px) --- */
+@media (max-width: 359px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .hero-carousel .carousel-item {
+        height: 55vh;
+        min-height: 300px;
+    }
+
+    .hero-cards-container {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+
+    .hero-card {
+        padding: 0.55rem 0.7rem;
+    }
+
+    .hero-card-icon-wrapper {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        font-size: 0.8rem;
+    }
+
+    .hero-card-title {
+        font-size: 0.75rem;
+    }
+
+    .hero-card-label {
+        font-size: 0.5rem;
     }
 }
 

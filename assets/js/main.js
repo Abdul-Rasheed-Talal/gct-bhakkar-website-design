@@ -17,8 +17,90 @@ const App = {
     this.initComponents();
     this.initBackToTop();
     this.initPreloader();
+    this.initScrollHints(); // Mobile scroll guidance
+    this.initInfiniteScroll(); // Mobile infinite marquee
     this.loadFeedbackComponent(); // Load Smart Feedback
     console.log('GCT Bhakkar Website Initialized');
+  },
+
+  /**
+   * Mobile Scroll Hints — wraps .mobile-scroll-row in a wrapper
+   * with a gradient edge + animated arrow, hidden once scrolled.
+   */
+  initScrollHints() {
+    if (window.innerWidth > 767) return; // desktop — skip
+
+    document.querySelectorAll('.mobile-scroll-row').forEach(row => {
+      // Skip if already wrapped
+      if (row.parentElement.classList.contains('mobile-scroll-row-wrapper')) return;
+
+      // Wrap in wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'mobile-scroll-row-wrapper';
+      row.parentNode.insertBefore(wrapper, row);
+      wrapper.appendChild(row);
+
+      // Add hint arrow
+      const hint = document.createElement('span');
+      hint.className = 'scroll-hint';
+      hint.innerHTML = '<i class="fas fa-chevron-right"></i>';
+      wrapper.appendChild(hint);
+
+      // Hide hint after first scroll
+      let scrolled = false;
+      row.addEventListener('scroll', () => {
+        if (!scrolled && row.scrollLeft > 20) {
+          scrolled = true;
+          wrapper.classList.add('scrolled');
+        }
+      }, { passive: true });
+    });
+  },
+
+  /**
+   * Mobile Infinite Marquee — wraps .mobile-infinite-scroll children
+   * in a duplicated track for seamless continuous scrolling.
+   */
+  initInfiniteScroll() {
+    if (window.innerWidth > 767) return; // desktop — skip
+
+    document.querySelectorAll('.mobile-infinite-scroll').forEach(container => {
+      // Skip if already set up
+      if (container.querySelector('.marquee-track')) return;
+
+      // Collect all direct children
+      const children = Array.from(container.children);
+      if (children.length < 2) return; // need at least 2 for marquee
+
+      // Create track
+      const track = document.createElement('div');
+      track.className = 'marquee-track';
+
+      // Move original cards into track
+      children.forEach(child => track.appendChild(child));
+
+      // Duplicate cards for seamless loop
+      children.forEach(child => {
+        const clone = child.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+
+      container.appendChild(track);
+
+      // Adjust speed based on card count (more cards = slower)
+      const speed = Math.max(10, children.length * 3);
+      container.style.setProperty('--marquee-duration', `${speed}s`);
+
+      // Touch pause behavior
+      container.addEventListener('touchstart', () => {
+        container.classList.add('paused');
+      }, { passive: true });
+
+      container.addEventListener('touchend', () => {
+        setTimeout(() => container.classList.remove('paused'), 1000);
+      }, { passive: true });
+    });
   },
 
   /**

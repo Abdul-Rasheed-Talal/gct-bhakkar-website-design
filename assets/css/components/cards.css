@@ -596,3 +596,36 @@
         line-clamp: 5;
     }
 }
+
+/* --- Small Mobile (≤480px) --- */
+@media (max-width: 480px) {
+    .card-stat {
+        padding: 1.25rem;
+    }
+
+    .card-stat-number {
+        font-size: var(--text-2xl);
+    }
+
+    .card-stat-label {
+        font-size: 0.8rem;
+    }
+
+    .card-feature {
+        padding: var(--space-4);
+    }
+
+    .card-feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: var(--text-xl);
+    }
+
+    .card-department .card-img-wrapper {
+        height: 200px !important;
+    }
+
+    .card-department .card-body {
+        padding: 1.25rem;
+    }
+}

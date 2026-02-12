@@ -344,3 +344,34 @@
         border-radius: 0;
     }
 }
+
+/* --- Small Mobile (≤480px) --- */
+@media (max-width: 480px) {
+    .section {
+        padding: var(--space-8) 0;
+    }
+
+    .section-header {
+        margin-bottom: var(--space-6);
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-cta {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .section-cta .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-cta .section-subtitle {
+        font-size: 0.85rem;
+    }
+}
