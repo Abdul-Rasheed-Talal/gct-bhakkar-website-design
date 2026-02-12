@@ -42,6 +42,8 @@
     <link rel="stylesheet" href="./assets/css/components/navbar.css">
     <link rel="stylesheet" href="./assets/css/components/hero.css">
     <link rel="stylesheet" href="./assets/css/components/cards.css">
+    <link rel="stylesheet" href="./assets/css/components/serenity.css"> <!-- Serenity Effect -->
+    <link rel="stylesheet" href="./assets/css/components/spotlight.css"> <!-- Spotlight Effect -->
     <link rel="stylesheet" href="./assets/css/components/footer.css">
     <link rel="stylesheet" href="./assets/css/components/preloader.css">
     <link rel="stylesheet" href="./assets/css/layouts/sections.css">
@@ -434,9 +436,10 @@
         </section>
 
         <!-- Principal's Message Section -->
-        <section class="principal-section" id="principal-message" aria-labelledby="principal-heading">
+        <section class="principal-section serenity-bg" id="principal-message" aria-labelledby="principal-heading">
             <!-- Decorative Background Elements -->
-            <div class="principal-bg-shapes" aria-hidden="true">
+            <div class="principal-bg-shapes" aria-hidden="true" style="opacity: 0.5;">
+                <!-- Reduced opacity for Serenity to shine -->
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
@@ -509,7 +512,7 @@
         </section>
 
         <!-- Statistics Section -->
-        <section class="section section-gradient">
+        <section class="section spotlight-bg">
             <div class="container">
                 <div class="row g-4 text-center">
                     <div class="col-6 col-md-6 col-lg-3" data-animate="scaleIn">

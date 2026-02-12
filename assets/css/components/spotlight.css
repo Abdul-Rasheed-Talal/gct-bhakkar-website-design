@@ -1,0 +1,84 @@
+/* =========================================
+   SPOTLIGHT EFFECT (Ambient Glow) - THEMED
+   ========================================= */
+
+/* 
+   Inspired by modern SaaS designs (like Linear/Vercel).
+   Features a deep dark background with a central, soft 
+   radial gradient that acts like a spotlight.
+*/
+
+.spotlight-bg {
+    position: relative;
+    /* Use theme background to match perfectly */
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    overflow: hidden;
+}
+
+/* The Spotlight Glow */
+.spotlight-bg::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    background: radial-gradient(circle closest-side,
+            var(--color-accent-primary),
+            /* Use theme accent color for glow */
+            transparent 100%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.15;
+    /* Subtle glow */
+}
+
+/* Ensure content sits above the glow */
+.spotlight-bg .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Stats Cards - Adaptive Glass */
+.spotlight-bg .card-stat {
+    background: var(--color-bg-card);
+    /* Theme card background (already glass) */
+    border: 1px solid var(--color-border-default);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotlight-bg .card-stat:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-primary);
+    box-shadow: var(--shadow-glow);
+    /* Glowing shadow from theme */
+}
+
+.spotlight-bg .card-stat-number {
+    color: var(--color-text-primary);
+    /* Optional: Add text shadow only if in dark mode */
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.spotlight-bg .card-stat-label {
+    color: var(--color-text-muted);
+}
+
+/* Light Mode Overrides (if needed beyond variables) 
+   The variables should handle most, but we can tune the glow opacity.
+*/
+[data-theme="light"] .spotlight-bg::before {
+    opacity: 0.1;
+    /* Softer glow in light mode */
+}
+
+[data-theme="light"] .spotlight-bg .card-stat-number {
+    text-shadow: none;
+    /* No text glow in light mode for readability */
+}

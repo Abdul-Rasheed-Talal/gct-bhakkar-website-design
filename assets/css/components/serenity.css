@@ -1,0 +1,96 @@
+/* =========================================
+   SERENITY EFFECT (Aurora Gradient)
+   ========================================= */
+
+/* 
+   A calm, slow-moving gradient mesh that creates a 
+   peaceful, premium, and "serene" atmosphere.
+*/
+
+.serenity-bg {
+    position: relative;
+    overflow: hidden;
+    background: #0f172a;
+    /* Fallback deep blue */
+    z-index: 0;
+}
+
+/* The Aurora Mesh */
+.serenity-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%,
+            rgba(76, 29, 149, 0.15),
+            /* Deep Purple */
+            rgba(56, 189, 248, 0.1),
+            /* Light Blue */
+            rgba(16, 185, 129, 0.05),
+            /* Emerald */
+            transparent 70%);
+    filter: blur(60px);
+    opacity: 0.6;
+    animation: auroraFlow 25s infinite alternate ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Secondary layer for depth */
+.serenity-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -20%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at center,
+            rgba(139, 92, 246, 0.1),
+            /* Violet */
+            rgba(6, 182, 212, 0.08),
+            /* Cyan */
+            transparent 60%);
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: auroraFlowReverse 30s infinite alternate-reverse ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Keyframes for the flow */
+@keyframes auroraFlow {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    100% {
+        transform: translate(-10%, -5%) rotate(5deg) scale(1.1);
+    }
+}
+
+@keyframes auroraFlowReverse {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    100% {
+        transform: translate(10%, 10%) rotate(-5deg) scale(1.05);
+    }
+}
+
+/* Light Theme Adjustment */
+[data-theme="light"] .serenity-bg {
+    background: #f8fafc;
+    /* Very light cool gray */
+}
+
+[data-theme="light"] .serenity-bg::before {
+    background: radial-gradient(circle at 50% 50%,
+            rgba(124, 58, 237, 0.1),
+            /* Violet */
+            rgba(14, 165, 233, 0.1),
+            /* Sky */
+            transparent 70%);
+}
