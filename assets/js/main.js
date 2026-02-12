@@ -181,3 +181,43 @@ muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
 
   observer.observe(video);
 });
+
+
+function updateOfficeStatus() {
+    const now = new Date();
+    const day = now.getDay(); // Sunday = 0, Monday = 1, ...
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+
+    let isOpen = false;
+
+    // Mon - Fri: 8 AM - 4 PM
+    if (day >= 1 && day <= 5) {
+        if (hour >= 8 && hour < 16) {
+            isOpen = true;
+        }
+    }
+    // Sat: 8 AM - 1 PM
+    else if (day === 6) {
+        if (hour >= 8 && hour < 13) {
+            isOpen = true;
+        }
+    }
+
+    const statusEl = document.getElementById("contact-status");
+    if (isOpen) {
+        statusEl.innerHTML = '<i class="fas fa-circle"></i> Currently Open';
+        statusEl.classList.add("open");
+        statusEl.classList.remove("closed");
+    } else {
+        statusEl.innerHTML = '<i class="fas fa-circle"></i> Currently Closed';
+        statusEl.classList.add("closed");
+        statusEl.classList.remove("open");
+    }
+}
+
+// Run on page load
+updateOfficeStatus();
+
+// Optional: Update every 5 minutes automatically
+setInterval(updateOfficeStatus, 5 * 60 * 1000);

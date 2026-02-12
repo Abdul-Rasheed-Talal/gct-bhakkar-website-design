@@ -3158,7 +3158,6 @@ textarea.form-input {
 
 .event-badge.cultural {
   background: rgba(139, 92, 246, 0.15);
-    padding: 4px 10px !important;
   color: #8b5cf6;
 }
 
@@ -3485,10 +3484,11 @@ textarea.form-input {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+  color: white;
 }
 
 .card-department .hover-content {
-  display: none;
+  color: white !important;
 }
 
 .card-department .card-body {
@@ -4512,8 +4512,7 @@ textarea.form-input {
 /* 📱 Mobile screens */
 @media (max-width: 600px) {
   .my-share-container {
-    top: auto;
-    bottom: 20px;
+    top: 90%;
     left: 15px;
   }
 
@@ -4533,7 +4532,7 @@ textarea.form-input {
 /* 📲 Tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
   .my-share-container {
-    top: 500px; 
+    top: 90%; 
     left: 25px;
   }
 
@@ -4553,7 +4552,7 @@ textarea.form-input {
 /* 💻 Large desktops */
 @media (min-width: 1025px) {
   .my-share-container {
-    top: 700px;  
+    top: 90%;  
     left: 30px;
   }
 }
