@@ -53,6 +53,15 @@ document.head.appendChild(style);
             { name: 'Admissions', href: `${this.basePath}pages/admissions.html`, id: 'admissions' },
             { name: 'Campus Life', href: `${this.basePath}pages/campus-life.html`, id: 'campus-life' },
             { name: 'Projects', href: `${this.basePath}pages/projects.html`, id: 'projects' },
+            {
+                name: 'More',
+                href: '#',
+                id: 'more',
+                dropdown: [
+                    { name: 'CBS (Character Building)', href: `${this.basePath}pages/cbs.html`, icon: 'fa-hand-holding-heart' },
+                    { name: 'Related Studies', href: `${this.basePath}pages/related-studies.html`, icon: 'fa-book-open' }
+                ]
+            },
             { name: 'Contact', href: `${this.basePath}pages/contact.html`, id: 'contact' }
         ];
     }

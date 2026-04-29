@@ -43,6 +43,8 @@ class Footer {
       { name: 'About Us', href: `${this.basePath}pages/about.html`, icon: 'fas fa-info-circle' },
       { name: 'Programs', href: `${this.basePath}pages/programs.html`, icon: 'fas fa-graduation-cap' },
       { name: 'Admissions', href: `${this.basePath}pages/admissions.html`, icon: 'fas fa-user-plus' },
+      { name: 'CBS', href: `${this.basePath}pages/cbs.html`, icon: 'fas fa-hand-holding-heart' },
+      { name: 'Related Studies', href: `${this.basePath}pages/related-studies.html`, icon: 'fas fa-book-open' },
       { name: 'Contact', href: `${this.basePath}pages/contact.html`, icon: 'fas fa-envelope' }
     ];
   }

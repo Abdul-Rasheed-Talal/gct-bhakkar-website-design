@@ -1,0 +1,14 @@
+/*
+ * GCT Bhakkar - CBS (Character Building Society) Page Styles
+ * Minimal page-specific overrides; most styles inherited from global CSS
+ */
+
+/* CBS page inherits all styles from the global design system */
+/* No additional overrides needed - the page uses existing components:
+   - .hero.hero-page (hero section)
+   - .two-col (introduction layout)
+   - .card.card-feature (values & activities cards)
+   - .staff-section / .staff-grid / .staff-card (faculty listing)
+   - .section-cta (call to action)
+   All with full light/dark theme support via theme.css
+*/
