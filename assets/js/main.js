@@ -19,7 +19,7 @@ const App = {
     this.initPreloader();
     this.initScrollHints(); // Mobile scroll guidance
     this.initInfiniteScroll(); // Mobile infinite marquee
-    console.log('GCT Bhakkar Website Initialized');
+    // Application initialized
   },
 
   /**
@@ -211,11 +211,14 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 
-
-
-
+/**
+ * Campus Video Player
+ * Only initializes on pages with the campusVideo element
+ */
 document.addEventListener('DOMContentLoaded', () => {
   const video = document.getElementById('campusVideo');
+  if (!video) return;
+
   const playBtn = document.getElementById('playPauseBtn');
   const muteBtn = document.getElementById('muteBtn');
   const progress = document.getElementById('videoProgress');
@@ -225,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start video muted
   video.muted = true;
   muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-
 
   // Update time display
   const formatTime = sec => {
@@ -270,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        video.play().catch(() => console.log("Autoplay blocked"));
+        video.play().catch(() => {});
         playBtn.innerHTML = '<i class="fas fa-pause"></i>';
       } else {
         video.pause();
@@ -282,12 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(video);
 });
 
-
+/**
+ * Office Status Indicator
+ * Only runs on pages with the contact-status element
+ */
 function updateOfficeStatus() {
+  const statusEl = document.getElementById('contact-status');
+  if (!statusEl) return;
+
   const now = new Date();
-  const day = now.getDay(); // Sunday = 0, Monday = 1, ...
+  const day = now.getDay();
   const hour = now.getHours();
-  const minute = now.getMinutes();
 
   let isOpen = false;
 
@@ -304,15 +311,14 @@ function updateOfficeStatus() {
     }
   }
 
-  const statusEl = document.getElementById("contact-status");
   if (isOpen) {
     statusEl.innerHTML = '<i class="fas fa-circle"></i> Currently Open';
-    statusEl.classList.add("open");
-    statusEl.classList.remove("closed");
+    statusEl.classList.add('open');
+    statusEl.classList.remove('closed');
   } else {
     statusEl.innerHTML = '<i class="fas fa-circle"></i> Currently Closed';
-    statusEl.classList.add("closed");
-    statusEl.classList.remove("open");
+    statusEl.classList.add('closed');
+    statusEl.classList.remove('open');
   }
 }
 
