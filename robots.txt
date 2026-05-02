@@ -1,0 +1,12 @@
+# robots.txt — GCT Bhakkar Website
+# https://gctbhakkar.edu.pk
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gctbhakkar.edu.pk/sitemap.xml
+
+# Disallow admin/system paths
+Disallow: /assets/js/vendor/
+Disallow: /assets/css/vendor/
