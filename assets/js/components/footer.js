@@ -167,19 +167,7 @@ class Footer {
                 </div>
               </div>
 
-              <!-- Newsletter Section -->
-              <div class="footer-newsletter">
-                <div class="newsletter-content">
-                  <h4 class="newsletter-title">Stay Updated</h4>
-                  <p class="newsletter-subtitle">Subscribe to receive latest news and updates from GCT Bhakkar</p>
-                </div>
-                <form class="newsletter-form" onsubmit="return false;">
-                  <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                  <button type="submit" class="newsletter-btn">
-                    <i class="fas fa-paper-plane"></i> Subscribe
-                  </button>
-                </form>
-              </div>
+            
             </div>
           </div>
           

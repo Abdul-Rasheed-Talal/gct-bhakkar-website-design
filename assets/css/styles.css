@@ -2237,19 +2237,19 @@ body {
   height: 120px;
   border-radius: 50%;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, var(--accent-teal), #2c9a94);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  color: white;
-  font-weight: 700;
-  text-transform: uppercase;
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
+
+.staff-avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
 
 .staff-avatar::after {
   content: "";
@@ -2268,14 +2268,6 @@ body {
   transform: scale(1.05);
   box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
 }
-
-.staff-avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .staff-name {
   font-size: 1.25rem;
   font-weight: 600;
@@ -3687,25 +3679,27 @@ textarea.form-input {
   min-width: 280px;
   height: 100%;
 }
-
-.developer-image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.9) 100%);
-  z-index: 1;
+ .developer-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 }
 
 .developer-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   transition: transform 0.6s ease, filter 0.4s ease;
+  display: block;
 }
 
+/* Hover effect */
 .developer-card:hover .developer-image img {
-  transform: scale(1.1);
-  filter: brightness(1.1);
+  transform: scale(1.05);
+  filter: brightness(1.05);
 }
 
 /* Online Status Badge */
