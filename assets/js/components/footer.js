@@ -195,6 +195,17 @@ class Footer {
                 </a>
               </div>
             </div>
+            <div class="footer-report">
+              <span class="footer-report-label"><i class="fas fa-exclamation-circle"></i> Report Issue / Give Feedback</span>
+              <div class="footer-report-links">
+                <a href="mailto:mabdulrasheedtalal@gmail.com" class="footer-report-link">
+                  <i class="fas fa-envelope"></i> mabdulrasheedtalal@gmail.com
+                </a>
+                <a href="tel:03361115907" class="footer-report-link">
+                  <i class="fas fa-phone"></i> 0336-1115907
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
@@ -205,15 +216,29 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 const footer = document.querySelector('.site-footer');
 
-// Freeze variables/colors
-footer.style.setProperty('--text-muted', '#94a3b8');
-footer.style.setProperty('--text-primary', '#e2e8f0');
+// Freeze variables/colors — brighter defaults
+footer.style.setProperty('--text-muted', '#b0bec5');
+footer.style.setProperty('--text-primary', '#f1f5f9');
 footer.style.setProperty('--bg-primary', 'transparent');
 
-// Fix icons colors
-footer.querySelector('.footer-made-by').style.color = '#94a3b8';
+// Fix element colors
+footer.querySelector('.footer-made-by').style.color = '#b0bec5';
 footer.querySelector('.fa-heart').style.color = '#ef4444';
 footer.querySelector('a.developers-link').style.color = '#60a5fa';
+
+// Ensure report links stay bright (prevent theme.css global overrides)
+footer.querySelectorAll('.footer-report-link').forEach(link => {
+  link.style.color = '#b0bec5';
+});
+footer.querySelectorAll('.footer-bottom-link').forEach(link => {
+  link.style.color = '#b0bec5';
+});
+footer.querySelectorAll('.footer-link').forEach(link => {
+  link.style.color = '#b0bec5';
+});
+footer.querySelectorAll('.footer-contact-value a').forEach(link => {
+  link.style.color = '#f1f5f9';
+});
 
 
   }

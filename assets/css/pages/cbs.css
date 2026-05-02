@@ -1,14 +1,210 @@
 /*
  * GCT Bhakkar - CBS (Character Building Society) Page Styles
- * Minimal page-specific overrides; most styles inherited from global CSS
+ * Page-specific styles for the CBS page
  */
 
 /* CBS page inherits all styles from the global design system */
-/* No additional overrides needed - the page uses existing components:
-   - .hero.hero-page (hero section)
-   - .two-col (introduction layout)
-   - .card.card-feature (values & activities cards)
-   - .staff-section / .staff-grid / .staff-card (faculty listing)
-   - .section-cta (call to action)
-   All with full light/dark theme support via theme.css
-*/
+/* Additional CBS-specific components below */
+
+/* ===== CBS Goal Quote ===== */
+.cbs-goal-quote {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--color-accent-primary, #3b82f6);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+.cbs-goal-quote p {
+    margin: 0;
+    color: var(--color-text-secondary, #cbd5e1);
+}
+
+.cbs-goal-quote strong {
+    color: #60a5fa;
+}
+
+[data-theme="light"] .cbs-goal-quote {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.05));
+}
+
+[data-theme="light"] .cbs-goal-quote strong {
+    color: #2563eb;
+}
+
+/* ===== CBS Footer Banner ===== */
+.cbs-footer-banner {
+    text-align: center;
+    padding: 4rem 2.5rem;
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f2847 40%, #1a1a4e 100%);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated accent orbs */
+.cbs-footer-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 15% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: cbsOrbs 8s ease-in-out infinite alternate;
+}
+
+@keyframes cbsOrbs {
+    0% { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Top accent line */
+.cbs-footer-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), rgba(139, 92, 246, 0.6), transparent);
+    border-radius: 2px;
+}
+
+.cbs-banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cbs-banner-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 15px rgba(59, 130, 246, 0.3);
+}
+
+.cbs-banner-subtitle {
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.cbs-banner-city {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #60a5fa;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+}
+
+.cbs-banner-divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent);
+    margin: 0 auto 1.25rem;
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+.cbs-banner-tagline {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    letter-spacing: 0.03em;
+}
+
+/* Light theme — banner keeps dark bg, so force light text */
+[data-theme="light"] .cbs-footer-banner {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f2847 40%, #1a1a4e 100%);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+[data-theme="light"] .cbs-banner-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="light"] .cbs-banner-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="light"] .cbs-banner-city {
+    color: #60a5fa !important;
+}
+
+[data-theme="light"] .cbs-banner-tagline {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Light theme — card feature text */
+[data-theme="light"] .card-feature .card-title {
+    color: var(--text-light, #1e293b);
+}
+
+[data-theme="light"] .card-feature .card-text {
+    color: var(--text-muted, #64748b);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .cbs-footer-banner {
+        padding: 3rem 1.5rem;
+        border-radius: 18px;
+    }
+
+    .cbs-banner-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .cbs-banner-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .cbs-banner-city {
+        font-size: 1.15rem;
+    }
+
+    .cbs-banner-tagline {
+        font-size: 0.9rem;
+    }
+
+    .cbs-goal-quote {
+        padding: 1rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cbs-footer-banner {
+        padding: 2.5rem 1.25rem;
+        border-radius: 14px;
+    }
+
+    .cbs-banner-title {
+        font-size: 1.2rem;
+    }
+
+    .cbs-banner-subtitle {
+        font-size: 0.78rem;
+    }
+
+    .cbs-banner-city {
+        font-size: 1rem;
+    }
+
+    .cbs-banner-tagline {
+        font-size: 0.82rem;
+    }
+}

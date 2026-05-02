@@ -439,7 +439,7 @@ img:not([loading="lazy"]) {
 
 
 
-[data-theme="light"] p:not(.hero-subtitle):not(.section-cta p):not(.card-text):not(.card-beside p):not(footer p) {
+[data-theme="light"] p:not(.hero-subtitle):not(.section-cta p):not(.card-text):not(.card-beside p):not(footer p):not(.cbs-banner-subtitle):not(.cbs-banner-city):not(.cbs-banner-tagline) {
     color: #555454 !important;
 }
 
