@@ -74,6 +74,17 @@ document.head.appendChild(style);
             const activeClass = isActive ? 'active' : '';
 
             if (item.dropdown) {
+                // For dropdowns with a real page (not '#'), add a "View All" link at top
+                const viewAllLink = item.href !== '#' ? `
+                    <li>
+                        <a class="dropdown-item dropdown-item-viewall" href="${item.href}">
+                            <i class="fas fa-th-list"></i>
+                            View All ${item.name}
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                ` : '';
+
                 return `
                     <li class="nav-item dropdown">
                         <a class="nav-link ${activeClass}" href="${item.href}">
@@ -81,6 +92,7 @@ document.head.appendChild(style);
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
                         </a>
                         <ul class="dropdown-menu">
+                            ${viewAllLink}
                             ${item.dropdown.map(subItem => `
                                 <li>
                                     <a class="dropdown-item" href="${subItem.href}">
@@ -221,22 +233,21 @@ document.head.appendChild(style);
             });
         }
 
-        // Mobile dropdown toggle
+        // Mobile dropdown toggle — entire link toggles the sub-menu
 const dropdowns = document.querySelectorAll('.nav-item.dropdown');
 dropdowns.forEach(dropdown => {
     const link = dropdown.querySelector('.nav-link');
 
     link?.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
-            if (e.target.closest('.dropdown-arrow')) {
-                e.preventDefault();
+            // On mobile, prevent navigation and toggle dropdown instead
+            e.preventDefault();
 
-                dropdowns.forEach(d => {
-                    if (d !== dropdown) d.classList.remove('open');
-                });
+            dropdowns.forEach(d => {
+                if (d !== dropdown) d.classList.remove('open');
+            });
 
-                dropdown.classList.toggle('open');
-            }
+            dropdown.classList.toggle('open');
         }
     });
 });
