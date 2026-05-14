@@ -177,13 +177,13 @@
 
 .card-department .card-img-overlay,
 .card-dep .card-img-overlay {
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+    background: linear-gradient(to top, rgba(59, 63, 72, 0.9), transparent);
     opacity: 0.6;
 }
 
 .card-department:hover .card-img-overlay,
 .card-dep:hover .card-img-overlay {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .card-department .hover-content,
